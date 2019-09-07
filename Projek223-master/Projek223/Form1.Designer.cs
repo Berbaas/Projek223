@@ -48,6 +48,8 @@
             this.lblMinimize = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblExit = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlReports.SuspendLayout();
             this.pnlPurchases.SuspendLayout();
@@ -61,11 +63,13 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.pnlReports);
             this.panel1.Controls.Add(this.pnlPurchases);
             this.panel1.Controls.Add(this.pnlSales);
@@ -293,6 +297,26 @@
             this.lblExit.MouseEnter += new System.EventHandler(this.lblExit_MouseEnter);
             this.lblExit.MouseLeave += new System.EventHandler(this.lblExit_MouseLeave);
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(168)))), ((int)(((byte)(168)))));
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Location = new System.Drawing.Point(10, 608);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(243, 86);
+            this.panel6.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(81, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 43);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Help";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +350,8 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -352,6 +378,8 @@
         private System.Windows.Forms.Label lblSales;
         private System.Windows.Forms.Label lblGrowth;
         private System.Windows.Forms.Panel pnlFORMS;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label1;
     }
 }
 

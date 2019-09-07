@@ -42,7 +42,18 @@
             this.lblInfo = new System.Windows.Forms.Label();
             this.MaintainGC = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgGROWT = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblBTNAddGC = new System.Windows.Forms.Label();
+            this.dateTimePickerADD = new System.Windows.Forms.DateTimePicker();
+            this.lblAddDesc1 = new System.Windows.Forms.Label();
+            this.lblAddDesc2 = new System.Windows.Forms.Label();
+            this.lblAddDesc3 = new System.Windows.Forms.Label();
+            this.cmbVarADD = new System.Windows.Forms.ComboBox();
+            this.txtADD = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtCD = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblChangeGC = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -52,64 +63,50 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbVarCD = new System.Windows.Forms.ComboBox();
-            this.lblChange = new System.Windows.Forms.Label();
-            this.dgGROWT = new System.Windows.Forms.DataGridView();
             this.lblAddGC = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblBTNAddGC = new System.Windows.Forms.Label();
-            this.dateTimePickerADD = new System.Windows.Forms.DateTimePicker();
-            this.lblAddDesc1 = new System.Windows.Forms.Label();
-            this.lblAddDesc2 = new System.Windows.Forms.Label();
-            this.lblAddDesc3 = new System.Windows.Forms.Label();
-            this.cmbVarADD = new System.Windows.Forms.ComboBox();
+            this.lblChange = new System.Windows.Forms.Label();
             this.MaintainVariant = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAddVar1 = new System.Windows.Forms.Label();
+            this.dgVariants = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCDVar2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblChangeVar = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblDeleteVar = new System.Windows.Forms.Label();
             this.lblCDVar4 = new System.Windows.Forms.Label();
             this.txtTypeCD = new System.Windows.Forms.TextBox();
             this.txtDaysCD = new System.Windows.Forms.TextBox();
             this.lblCDVar3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.lblCDVar1 = new System.Windows.Forms.Label();
-            this.dgVariants = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDaysADD = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.lblAddVar2 = new System.Windows.Forms.Label();
             this.lblAddVar3 = new System.Windows.Forms.Label();
             this.txtTypeADD = new System.Windows.Forms.TextBox();
+            this.lblCDVar1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtADD = new System.Windows.Forms.TextBox();
-            this.txtCD = new System.Windows.Forms.TextBox();
-            this.txtDaysADD = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.addPage.SuspendLayout();
             this.Info.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.MaintainGC.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgGROWT)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.MaintainVariant.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -270,134 +267,6 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1384, 831);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.txtCD, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.panel5, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.dateTimePickerCD, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.cmbVarCD, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(695, 437);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 4;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45347F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45348F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45348F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.63958F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(514, 264);
-            this.tableLayoutPanel4.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
-            this.panel5.Controls.Add(this.lblChangeGC);
-            this.panel5.Location = new System.Drawing.Point(30, 203);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(197, 58);
-            this.panel5.TabIndex = 6;
-            this.panel5.Click += new System.EventHandler(this.panel5_Click);
-            // 
-            // lblChangeGC
-            // 
-            this.lblChangeGC.AutoSize = true;
-            this.lblChangeGC.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeGC.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblChangeGC.Location = new System.Drawing.Point(35, 9);
-            this.lblChangeGC.Name = "lblChangeGC";
-            this.lblChangeGC.Size = new System.Drawing.Size(120, 40);
-            this.lblChangeGC.TabIndex = 0;
-            this.lblChangeGC.Text = "Change";
-            this.lblChangeGC.Click += new System.EventHandler(this.lblChangeGC_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panel4.Controls.Add(this.lblDeleteGC);
-            this.panel4.Location = new System.Drawing.Point(287, 203);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(197, 58);
-            this.panel4.TabIndex = 2;
-            this.panel4.Click += new System.EventHandler(this.panel4_Click);
-            // 
-            // lblDeleteGC
-            // 
-            this.lblDeleteGC.AutoSize = true;
-            this.lblDeleteGC.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteGC.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDeleteGC.Location = new System.Drawing.Point(47, 9);
-            this.lblDeleteGC.Name = "lblDeleteGC";
-            this.lblDeleteGC.Size = new System.Drawing.Size(105, 40);
-            this.lblDeleteGC.TabIndex = 0;
-            this.lblDeleteGC.Text = "Delete";
-            this.lblDeleteGC.Click += new System.EventHandler(this.lblDeleteGC_Click);
-            // 
-            // dateTimePickerCD
-            // 
-            this.dateTimePickerCD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePickerCD.Location = new System.Drawing.Point(277, 125);
-            this.dateTimePickerCD.Name = "dateTimePickerCD";
-            this.dateTimePickerCD.Size = new System.Drawing.Size(217, 29);
-            this.dateTimePickerCD.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 30);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Variant:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 30);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Quantity (g):";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 30);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Harvest date:";
-            // 
-            // cmbVarCD
-            // 
-            this.cmbVarCD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbVarCD.FormattingEnabled = true;
-            this.cmbVarCD.Location = new System.Drawing.Point(276, 13);
-            this.cmbVarCD.Name = "cmbVarCD";
-            this.cmbVarCD.Size = new System.Drawing.Size(218, 29);
-            this.cmbVarCD.TabIndex = 4;
-            this.cmbVarCD.SelectedIndexChanged += new System.EventHandler(this.cmbVarCD_SelectedIndexChanged);
-            // 
-            // lblChange
-            // 
-            this.lblChange.AutoSize = true;
-            this.lblChange.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.Location = new System.Drawing.Point(695, 395);
-            this.lblChange.Name = "lblChange";
-            this.lblChange.Size = new System.Drawing.Size(395, 37);
-            this.lblChange.TabIndex = 2;
-            this.lblChange.Text = "Change or delete growth cycle:";
-            // 
             // dgGROWT
             // 
             this.dgGROWT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -406,16 +275,6 @@
             this.dgGROWT.Size = new System.Drawing.Size(686, 389);
             this.dgGROWT.TabIndex = 1;
             this.dgGROWT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgGROWT_CellClick);
-            // 
-            // lblAddGC
-            // 
-            this.lblAddGC.AutoSize = true;
-            this.lblAddGC.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddGC.Location = new System.Drawing.Point(3, 395);
-            this.lblAddGC.Name = "lblAddGC";
-            this.lblAddGC.Size = new System.Drawing.Size(294, 37);
-            this.lblAddGC.TabIndex = 0;
-            this.lblAddGC.Text = "Add new growth cycle:";
             // 
             // tableLayoutPanel2
             // 
@@ -505,11 +364,165 @@
             // 
             this.cmbVarADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarADD.FormattingEnabled = true;
-            this.cmbVarADD.Location = new System.Drawing.Point(204, 17);
+            this.cmbVarADD.Location = new System.Drawing.Point(204, 13);
             this.cmbVarADD.Name = "cmbVarADD";
             this.cmbVarADD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarADD.TabIndex = 4;
             this.cmbVarADD.SelectedIndexChanged += new System.EventHandler(this.cmbVarADD_SelectedIndexChanged);
+            // 
+            // txtADD
+            // 
+            this.txtADD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtADD.Location = new System.Drawing.Point(203, 69);
+            this.txtADD.Name = "txtADD";
+            this.txtADD.Size = new System.Drawing.Size(219, 29);
+            this.txtADD.TabIndex = 5;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.txtCD, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.panel5, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.panel4, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.dateTimePickerCD, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.cmbVarCD, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(695, 437);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 4;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45347F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45348F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.45348F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.63958F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(514, 264);
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // txtCD
+            // 
+            this.txtCD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCD.Location = new System.Drawing.Point(276, 69);
+            this.txtCD.Name = "txtCD";
+            this.txtCD.Size = new System.Drawing.Size(219, 29);
+            this.txtCD.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
+            this.panel5.Controls.Add(this.lblChangeGC);
+            this.panel5.Location = new System.Drawing.Point(30, 203);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(197, 58);
+            this.panel5.TabIndex = 6;
+            this.panel5.Click += new System.EventHandler(this.panel5_Click);
+            // 
+            // lblChangeGC
+            // 
+            this.lblChangeGC.AutoSize = true;
+            this.lblChangeGC.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeGC.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblChangeGC.Location = new System.Drawing.Point(35, 9);
+            this.lblChangeGC.Name = "lblChangeGC";
+            this.lblChangeGC.Size = new System.Drawing.Size(120, 40);
+            this.lblChangeGC.TabIndex = 0;
+            this.lblChangeGC.Text = "Change";
+            this.lblChangeGC.Click += new System.EventHandler(this.lblChangeGC_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.panel4.Controls.Add(this.lblDeleteGC);
+            this.panel4.Location = new System.Drawing.Point(287, 203);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(197, 58);
+            this.panel4.TabIndex = 2;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
+            // 
+            // lblDeleteGC
+            // 
+            this.lblDeleteGC.AutoSize = true;
+            this.lblDeleteGC.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleteGC.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDeleteGC.Location = new System.Drawing.Point(47, 9);
+            this.lblDeleteGC.Name = "lblDeleteGC";
+            this.lblDeleteGC.Size = new System.Drawing.Size(105, 40);
+            this.lblDeleteGC.TabIndex = 0;
+            this.lblDeleteGC.Text = "Delete";
+            this.lblDeleteGC.Click += new System.EventHandler(this.lblDeleteGC_Click);
+            // 
+            // dateTimePickerCD
+            // 
+            this.dateTimePickerCD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerCD.Location = new System.Drawing.Point(277, 125);
+            this.dateTimePickerCD.Name = "dateTimePickerCD";
+            this.dateTimePickerCD.Size = new System.Drawing.Size(217, 29);
+            this.dateTimePickerCD.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Variant:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 30);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Quantity (g):";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 30);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Harvest date:";
+            // 
+            // cmbVarCD
+            // 
+            this.cmbVarCD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbVarCD.FormattingEnabled = true;
+            this.cmbVarCD.Location = new System.Drawing.Point(276, 17);
+            this.cmbVarCD.Name = "cmbVarCD";
+            this.cmbVarCD.Size = new System.Drawing.Size(218, 29);
+            this.cmbVarCD.TabIndex = 4;
+            this.cmbVarCD.SelectedIndexChanged += new System.EventHandler(this.cmbVarCD_SelectedIndexChanged);
+            // 
+            // lblAddGC
+            // 
+            this.lblAddGC.AutoSize = true;
+            this.lblAddGC.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddGC.Location = new System.Drawing.Point(3, 395);
+            this.lblAddGC.Name = "lblAddGC";
+            this.lblAddGC.Size = new System.Drawing.Size(294, 37);
+            this.lblAddGC.TabIndex = 0;
+            this.lblAddGC.Text = "Add new growth cycle:";
+            // 
+            // lblChange
+            // 
+            this.lblChange.AutoSize = true;
+            this.lblChange.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.Location = new System.Drawing.Point(695, 395);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(395, 37);
+            this.lblChange.TabIndex = 2;
+            this.lblChange.Text = "Change or delete growth cycle:";
             // 
             // MaintainVariant
             // 
@@ -523,6 +536,25 @@
             this.MaintainVariant.Text = "Variants";
             this.MaintainVariant.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.lblAddVar1, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.dgVariants, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel3, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel5, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.lblCDVar1, 1, 1);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 6);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 3;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.61905F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.61905F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1548, 872);
+            this.tableLayoutPanel7.TabIndex = 9;
+            // 
             // lblAddVar1
             // 
             this.lblAddVar1.AutoSize = true;
@@ -533,19 +565,27 @@
             this.lblAddVar1.TabIndex = 8;
             this.lblAddVar1.Text = "Add new variant:";
             // 
+            // dgVariants
+            // 
+            this.dgVariants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgVariants.Location = new System.Drawing.Point(3, 3);
+            this.dgVariants.Name = "dgVariants";
+            this.dgVariants.Size = new System.Drawing.Size(752, 397);
+            this.dgVariants.TabIndex = 5;
+            this.dgVariants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVariants_CellClick);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.lblCDVar2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.panel6, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.lblCDVar4, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.txtTypeCD, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.txtDaysCD, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblCDVar3, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.txtID, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(777, 459);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
@@ -571,7 +611,7 @@
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
             this.panel3.Controls.Add(this.lblChangeVar);
-            this.panel3.Location = new System.Drawing.Point(30, 203);
+            this.panel3.Location = new System.Drawing.Point(287, 203);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 58);
             this.panel3.TabIndex = 6;
@@ -588,27 +628,6 @@
             this.lblChangeVar.TabIndex = 0;
             this.lblChangeVar.Text = "Change";
             this.lblChangeVar.Click += new System.EventHandler(this.lblChangeVar_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.panel6.Controls.Add(this.lblDeleteVar);
-            this.panel6.Location = new System.Drawing.Point(287, 203);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(197, 58);
-            this.panel6.TabIndex = 2;
-            // 
-            // lblDeleteVar
-            // 
-            this.lblDeleteVar.AutoSize = true;
-            this.lblDeleteVar.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteVar.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDeleteVar.Location = new System.Drawing.Point(47, 9);
-            this.lblDeleteVar.Name = "lblDeleteVar";
-            this.lblDeleteVar.Size = new System.Drawing.Size(105, 40);
-            this.lblDeleteVar.TabIndex = 0;
-            this.lblDeleteVar.Text = "Delete";
             // 
             // lblCDVar4
             // 
@@ -655,25 +674,6 @@
             this.txtID.Size = new System.Drawing.Size(217, 29);
             this.txtID.TabIndex = 10;
             // 
-            // lblCDVar1
-            // 
-            this.lblCDVar1.AutoSize = true;
-            this.lblCDVar1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCDVar1.Location = new System.Drawing.Point(777, 415);
-            this.lblCDVar1.Name = "lblCDVar1";
-            this.lblCDVar1.Size = new System.Drawing.Size(324, 37);
-            this.lblCDVar1.TabIndex = 6;
-            this.lblCDVar1.Text = "Change or delete variant:";
-            // 
-            // dgVariants
-            // 
-            this.dgVariants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVariants.Location = new System.Drawing.Point(3, 3);
-            this.dgVariants.Name = "dgVariants";
-            this.dgVariants.Size = new System.Drawing.Size(752, 397);
-            this.dgVariants.TabIndex = 5;
-            this.dgVariants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVariants_CellClick);
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 3;
@@ -693,6 +693,14 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.37385F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(722, 235);
             this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // txtDaysADD
+            // 
+            this.txtDaysADD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDaysADD.Location = new System.Drawing.Point(251, 17);
+            this.txtDaysADD.Name = "txtDaysADD";
+            this.txtDaysADD.Size = new System.Drawing.Size(217, 29);
+            this.txtDaysADD.TabIndex = 9;
             // 
             // panel7
             // 
@@ -745,52 +753,19 @@
             this.txtTypeADD.Size = new System.Drawing.Size(217, 29);
             this.txtTypeADD.TabIndex = 5;
             // 
+            // lblCDVar1
+            // 
+            this.lblCDVar1.AutoSize = true;
+            this.lblCDVar1.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCDVar1.Location = new System.Drawing.Point(777, 415);
+            this.lblCDVar1.Name = "lblCDVar1";
+            this.lblCDVar1.Size = new System.Drawing.Size(209, 37);
+            this.lblCDVar1.TabIndex = 6;
+            this.lblCDVar1.Text = "Change variant:";
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.lblAddVar1, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.dgVariants, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel3, 1, 2);
-            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel5, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.lblCDVar1, 1, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 6);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.61905F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.761905F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.61905F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1548, 872);
-            this.tableLayoutPanel7.TabIndex = 9;
-            // 
-            // txtADD
-            // 
-            this.txtADD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtADD.Location = new System.Drawing.Point(203, 69);
-            this.txtADD.Name = "txtADD";
-            this.txtADD.Size = new System.Drawing.Size(219, 29);
-            this.txtADD.TabIndex = 5;
-            // 
-            // txtCD
-            // 
-            this.txtCD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCD.Location = new System.Drawing.Point(276, 69);
-            this.txtCD.Name = "txtCD";
-            this.txtCD.Size = new System.Drawing.Size(219, 29);
-            this.txtCD.TabIndex = 6;
-            // 
-            // txtDaysADD
-            // 
-            this.txtDaysADD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDaysADD.Location = new System.Drawing.Point(251, 17);
-            this.txtDaysADD.Name = "txtDaysADD";
-            this.txtDaysADD.Size = new System.Drawing.Size(217, 29);
-            this.txtDaysADD.TabIndex = 9;
             // 
             // frmGrowthC
             // 
@@ -812,32 +787,30 @@
             this.MaintainGC.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgGROWT)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgGROWT)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.MaintainVariant.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -881,8 +854,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblChangeVar;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label lblDeleteVar;
         private System.Windows.Forms.Label lblCDVar3;
         private System.Windows.Forms.Label lblCDVar4;
         private System.Windows.Forms.Label lblCDVar1;
