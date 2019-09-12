@@ -45,7 +45,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblBTNAddGC = new System.Windows.Forms.Label();
             this.lblAddDesc2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAddDesc1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -120,7 +119,6 @@
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -138,10 +136,12 @@
             this.label39 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label40 = new System.Windows.Forms.Label();
-            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
             this.MaintainSales.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -284,12 +284,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.88434F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.11566F));
             this.tableLayoutPanel5.Controls.Add(this.label25, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.comboBox6, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.lblAddPurch4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.comboBox2, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel2, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.lblAddDesc2, 0, 2);
-            this.tableLayoutPanel5.Controls.Add(this.comboBox3, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.textBox20, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.comboBox6, 1, 1);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 356);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
@@ -370,15 +370,6 @@
             this.lblAddDesc2.Size = new System.Drawing.Size(98, 30);
             this.lblAddDesc2.TabIndex = 2;
             this.lblAddDesc2.Text = "Quantity:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(316, 124);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(218, 29);
-            this.comboBox3.TabIndex = 6;
             // 
             // tableLayoutPanel2
             // 
@@ -1208,13 +1199,13 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(595, 320);
             this.dataGridView4.TabIndex = 20;
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 2;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.comboBox4, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.textBox11, 1, 3);
             this.tableLayoutPanel8.Controls.Add(this.textBox12, 1, 2);
             this.tableLayoutPanel8.Controls.Add(this.label20, 0, 3);
@@ -1223,6 +1214,7 @@
             this.tableLayoutPanel8.Controls.Add(this.textBox13, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.label21, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel11, 1, 4);
+            this.tableLayoutPanel8.Controls.Add(this.textBox19, 1, 1);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(604, 394);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 5;
@@ -1234,15 +1226,6 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(541, 312);
             this.tableLayoutPanel8.TabIndex = 22;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(288, 78);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(234, 29);
-            this.comboBox4.TabIndex = 23;
             // 
             // textBox11
             // 
@@ -1338,9 +1321,9 @@
             this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(3, 326);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(186, 37);
+            this.label34.Size = new System.Drawing.Size(228, 37);
             this.label34.TabIndex = 18;
-            this.label34.Text = "Add new item";
+            this.label34.Text = "Add new product";
             // 
             // label33
             // 
@@ -1362,9 +1345,9 @@
             this.tableLayoutPanel9.Controls.Add(this.label38, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.label39, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.panel12, 1, 3);
-            this.tableLayoutPanel9.Controls.Add(this.maskedTextBox7, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.maskedTextBox8, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.comboBox5, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.textBox10, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.textBox17, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.textBox18, 1, 2);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 394);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 4;
@@ -1428,34 +1411,49 @@
             this.label40.Text = "Add";
             this.label40.Click += new System.EventHandler(this.label40_Click);
             // 
-            // maskedTextBox7
+            // textBox10
             // 
-            this.maskedTextBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox7.Location = new System.Drawing.Point(152, 95);
-            this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(239, 29);
-            this.maskedTextBox7.TabIndex = 8;
+            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox10.Location = new System.Drawing.Point(152, 22);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(239, 29);
+            this.textBox10.TabIndex = 24;
             // 
-            // maskedTextBox8
+            // textBox17
             // 
-            this.maskedTextBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox8.Location = new System.Drawing.Point(152, 168);
-            this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(239, 29);
-            this.maskedTextBox8.TabIndex = 9;
+            this.textBox17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox17.Location = new System.Drawing.Point(152, 95);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(239, 29);
+            this.textBox17.TabIndex = 25;
             // 
-            // comboBox5
+            // textBox18
             // 
-            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(152, 22);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(239, 29);
-            this.comboBox5.TabIndex = 24;
+            this.textBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox18.Location = new System.Drawing.Point(152, 168);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(239, 29);
+            this.textBox18.TabIndex = 26;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox19.Location = new System.Drawing.Point(286, 74);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(239, 29);
+            this.textBox19.TabIndex = 20;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox20.Location = new System.Drawing.Point(316, 124);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(218, 29);
+            this.textBox20.TabIndex = 17;
             // 
             // frmSales
             // 
@@ -1565,7 +1563,6 @@
         private System.Windows.Forms.Label lblAddPurch4;
         private System.Windows.Forms.Label lblAddDesc2;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblBTNAddGC;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -1594,7 +1591,6 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TabPage Products;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label21;
@@ -1613,9 +1609,6 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox8;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label11;
@@ -1645,5 +1638,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtSearchProduct;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
     }
 }

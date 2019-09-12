@@ -368,7 +368,7 @@
             // 
             this.cmbVarADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarADD.FormattingEnabled = true;
-            this.cmbVarADD.Location = new System.Drawing.Point(204, 13);
+            this.cmbVarADD.Location = new System.Drawing.Point(204, 17);
             this.cmbVarADD.Name = "cmbVarADD";
             this.cmbVarADD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarADD.TabIndex = 4;
@@ -502,7 +502,7 @@
             // 
             this.cmbVarCD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarCD.FormattingEnabled = true;
-            this.cmbVarCD.Location = new System.Drawing.Point(276, 17);
+            this.cmbVarCD.Location = new System.Drawing.Point(276, 13);
             this.cmbVarCD.Name = "cmbVarCD";
             this.cmbVarCD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarCD.TabIndex = 4;
