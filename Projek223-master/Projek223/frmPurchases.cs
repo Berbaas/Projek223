@@ -18,7 +18,7 @@ namespace Projek223
             InitializeComponent();
         }
 
-        string connstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
+        string connstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baas\Documents\_TWEEDEJAAR\Projek 223\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlDataReader read;
         SqlCommand comm;

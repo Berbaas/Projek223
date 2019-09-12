@@ -83,6 +83,9 @@
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.MaintainSupp = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtSearchSupp = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -108,6 +111,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.MaintainItems = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtSearchItem = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label24 = new System.Windows.Forms.Label();
@@ -133,12 +139,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtSearchItem = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.txtSearchSupp = new System.Windows.Forms.TextBox();
             this.addPage.SuspendLayout();
             this.Info.SuspendLayout();
             this.MaintainPurch.SuspendLayout();
@@ -159,6 +159,7 @@
             this.panel13.SuspendLayout();
             this.MaintainSupp.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -166,14 +167,13 @@
             this.panel6.SuspendLayout();
             this.MaintainItems.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel14.SuspendLayout();
-            this.tableLayoutPanel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // addPage
@@ -200,7 +200,7 @@
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
             this.Info.Padding = new System.Windows.Forms.Padding(3);
-            this.Info.Size = new System.Drawing.Size(1032, 606);
+            this.Info.Size = new System.Drawing.Size(1216, 743);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
             this.Info.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             this.MaintainPurch.Location = new System.Drawing.Point(4, 30);
             this.MaintainPurch.Name = "MaintainPurch";
             this.MaintainPurch.Padding = new System.Windows.Forms.Padding(3);
-            this.MaintainPurch.Size = new System.Drawing.Size(1032, 606);
+            this.MaintainPurch.Size = new System.Drawing.Size(1216, 743);
             this.MaintainPurch.TabIndex = 1;
             this.MaintainPurch.Text = "New Purchase";
             this.MaintainPurch.UseVisualStyleBackColor = true;
@@ -364,7 +364,7 @@
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(257, 12);
+            this.comboBox2.Location = new System.Drawing.Point(257, 16);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(218, 29);
             this.comboBox2.TabIndex = 5;
@@ -374,7 +374,7 @@
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(257, 66);
+            this.comboBox3.Location = new System.Drawing.Point(257, 70);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(218, 29);
             this.comboBox3.TabIndex = 6;
@@ -469,7 +469,7 @@
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(257, 21);
+            this.comboBox1.Location = new System.Drawing.Point(257, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(218, 29);
             this.comboBox1.TabIndex = 4;
@@ -798,7 +798,7 @@
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(255, 68);
+            this.comboBox4.Location = new System.Drawing.Point(255, 72);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(213, 29);
@@ -835,6 +835,40 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(1115, 709);
             this.tableLayoutPanel12.TabIndex = 15;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.label36, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.txtSearchSupp, 1, 0);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(560, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 2;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(535, 156);
+            this.tableLayoutPanel15.TabIndex = 16;
+            // 
+            // label36
+            // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(45, 24);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(176, 30);
+            this.label36.TabIndex = 14;
+            this.label36.Text = "Search a supplier:";
+            // 
+            // txtSearchSupp
+            // 
+            this.txtSearchSupp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSearchSupp.Location = new System.Drawing.Point(286, 24);
+            this.txtSearchSupp.Name = "txtSearchSupp";
+            this.txtSearchSupp.Size = new System.Drawing.Size(229, 29);
+            this.txtSearchSupp.TabIndex = 0;
             // 
             // dataGridView2
             // 
@@ -1131,6 +1165,40 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(1182, 715);
             this.tableLayoutPanel13.TabIndex = 18;
             // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.txtSearchItem, 1, 0);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(594, 3);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(535, 156);
+            this.tableLayoutPanel14.TabIndex = 19;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(55, 24);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(156, 30);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Search an item:";
+            // 
+            // txtSearchItem
+            // 
+            this.txtSearchItem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSearchItem.Location = new System.Drawing.Point(286, 24);
+            this.txtSearchItem.Name = "txtSearchItem";
+            this.txtSearchItem.Size = new System.Drawing.Size(229, 29);
+            this.txtSearchItem.TabIndex = 0;
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1400,74 +1468,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 2;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Controls.Add(this.label19, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.txtSearchItem, 1, 0);
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(594, 3);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 2;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(535, 156);
-            this.tableLayoutPanel14.TabIndex = 19;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(55, 24);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(156, 30);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "Search an item:";
-            // 
-            // txtSearchItem
-            // 
-            this.txtSearchItem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSearchItem.Location = new System.Drawing.Point(286, 24);
-            this.txtSearchItem.Name = "txtSearchItem";
-            this.txtSearchItem.Size = new System.Drawing.Size(229, 29);
-            this.txtSearchItem.TabIndex = 0;
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.ColumnCount = 2;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Controls.Add(this.label36, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.txtSearchSupp, 1, 0);
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(560, 3);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 2;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(535, 156);
-            this.tableLayoutPanel15.TabIndex = 16;
-            // 
-            // label36
-            // 
-            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(45, 24);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(176, 30);
-            this.label36.TabIndex = 14;
-            this.label36.Text = "Search a supplier:";
-            // 
-            // txtSearchSupp
-            // 
-            this.txtSearchSupp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSearchSupp.Location = new System.Drawing.Point(286, 24);
-            this.txtSearchSupp.Name = "txtSearchSupp";
-            this.txtSearchSupp.Size = new System.Drawing.Size(229, 29);
-            this.txtSearchSupp.TabIndex = 0;
-            // 
             // frmPurchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1511,6 +1511,8 @@
             this.MaintainSupp.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1523,6 +1525,8 @@
             this.MaintainItems.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
@@ -1533,10 +1537,6 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel14.ResumeLayout(false);
-            this.tableLayoutPanel14.PerformLayout();
-            this.tableLayoutPanel15.ResumeLayout(false);
-            this.tableLayoutPanel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
