@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.addPage = new System.Windows.Forms.TabControl();
             this.Info = new System.Windows.Forms.TabPage();
             this.streep = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.lblAddPurch4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,7 @@
             this.lblBTNAddGC = new System.Windows.Forms.Label();
             this.lblAddDesc2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAddPurch2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -77,9 +78,9 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox14 = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.MaintainSupp = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -130,6 +131,14 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtSearchItem = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txtSearchSupp = new System.Windows.Forms.TextBox();
             this.addPage.SuspendLayout();
             this.Info.SuspendLayout();
             this.MaintainPurch.SuspendLayout();
@@ -162,6 +171,9 @@
             this.panel11.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // addPage
@@ -176,8 +188,9 @@
             this.addPage.Location = new System.Drawing.Point(0, 0);
             this.addPage.Name = "addPage";
             this.addPage.SelectedIndex = 0;
-            this.addPage.Size = new System.Drawing.Size(1390, 1061);
+            this.addPage.Size = new System.Drawing.Size(1224, 777);
             this.addPage.TabIndex = 4;
+            this.addPage.SelectedIndexChanged += new System.EventHandler(this.addPage_SelectedIndexChanged);
             // 
             // Info
             // 
@@ -187,7 +200,7 @@
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
             this.Info.Padding = new System.Windows.Forms.Padding(3);
-            this.Info.Size = new System.Drawing.Size(1382, 1027);
+            this.Info.Size = new System.Drawing.Size(1032, 606);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
             this.Info.UseVisualStyleBackColor = true;
@@ -219,7 +232,7 @@
             this.MaintainPurch.Location = new System.Drawing.Point(4, 30);
             this.MaintainPurch.Name = "MaintainPurch";
             this.MaintainPurch.Padding = new System.Windows.Forms.Padding(3);
-            this.MaintainPurch.Size = new System.Drawing.Size(1382, 1027);
+            this.MaintainPurch.Size = new System.Drawing.Size(1032, 606);
             this.MaintainPurch.TabIndex = 1;
             this.MaintainPurch.Text = "New Purchase";
             this.MaintainPurch.UseVisualStyleBackColor = true;
@@ -274,10 +287,12 @@
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(107)))));
             this.panel8.Controls.Add(this.label15);
-            this.panel8.Location = new System.Drawing.Point(145, 245);
+            this.panel8.Location = new System.Drawing.Point(145, 246);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(197, 55);
+            this.panel8.Size = new System.Drawing.Size(197, 54);
             this.panel8.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.panel8, "This button adds a purchase order.");
+            this.panel8.Click += new System.EventHandler(this.panel8_Click);
             // 
             // label15
             // 
@@ -289,6 +304,8 @@
             this.label15.Size = new System.Drawing.Size(76, 32);
             this.label15.TabIndex = 0;
             this.label15.Text = "Done";
+            this.toolTip1.SetToolTip(this.label15, "This button adds a purchase order.");
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // listBox1
             // 
@@ -296,8 +313,9 @@
             this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(3, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(481, 193);
+            this.listBox1.Size = new System.Drawing.Size(481, 172);
             this.listBox1.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.listBox1, "This displays the items to be added to a purchase order.");
             // 
             // label9
             // 
@@ -314,13 +332,13 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.88434F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.11566F));
-            this.tableLayoutPanel5.Controls.Add(this.comboBox4, 1, 2);
             this.tableLayoutPanel5.Controls.Add(this.lblAddPurch4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.comboBox2, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.comboBox3, 1, 1);
             this.tableLayoutPanel5.Controls.Add(this.panel2, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.lblAddDesc2, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.textBox6, 1, 2);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 451);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 4;
@@ -331,15 +349,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(531, 229);
             this.tableLayoutPanel5.TabIndex = 8;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(257, 124);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(218, 29);
-            this.comboBox4.TabIndex = 13;
             // 
             // lblAddPurch4
             // 
@@ -355,19 +364,21 @@
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(257, 16);
+            this.comboBox2.Location = new System.Drawing.Point(257, 12);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(218, 29);
             this.comboBox2.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.comboBox2, "Choose an item name by selecting the down arrow.");
             // 
             // comboBox3
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(257, 70);
+            this.comboBox3.Location = new System.Drawing.Point(257, 66);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(218, 29);
             this.comboBox3.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.comboBox3, "Choose an item description by selecting the down arrow.");
             // 
             // panel2
             // 
@@ -378,6 +389,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(197, 53);
             this.panel2.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.panel2, "This button displays the information added.");
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // lblBTNAddGC
             // 
@@ -389,6 +402,8 @@
             this.lblBTNAddGC.Size = new System.Drawing.Size(136, 37);
             this.lblBTNAddGC.TabIndex = 0;
             this.lblBTNAddGC.Text = "Add item";
+            this.toolTip1.SetToolTip(this.lblBTNAddGC, "This button displays the information added.\r\n\r\n");
+            this.lblBTNAddGC.Click += new System.EventHandler(this.lblBTNAddGC_Click);
             // 
             // lblAddDesc2
             // 
@@ -409,6 +424,16 @@
             this.label7.Size = new System.Drawing.Size(98, 30);
             this.label7.TabIndex = 8;
             this.label7.Text = "Quantity:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.Location = new System.Drawing.Point(256, 120);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(220, 29);
+            this.textBox6.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.textBox6, "Enter an integer value for quantity items bought.");
             // 
             // tableLayoutPanel2
             // 
@@ -448,6 +473,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(218, 29);
             this.comboBox1.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.comboBox1, "Choose a supplier to add by selecting the down arrow .");
             // 
             // lblAddPurch3
             // 
@@ -476,6 +502,8 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(197, 58);
             this.panel4.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.panel4, "This button adds a new purchase invoice.");
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
             // label30
             // 
@@ -487,6 +515,8 @@
             this.label30.Size = new System.Drawing.Size(200, 37);
             this.label30.TabIndex = 0;
             this.label30.Text = "Create invoice";
+            this.toolTip1.SetToolTip(this.label30, "This button adds a new purchase invoice.");
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // CDPurchase
             // 
@@ -494,9 +524,9 @@
             this.CDPurchase.Location = new System.Drawing.Point(4, 30);
             this.CDPurchase.Name = "CDPurchase";
             this.CDPurchase.Padding = new System.Windows.Forms.Padding(3);
-            this.CDPurchase.Size = new System.Drawing.Size(1382, 1027);
+            this.CDPurchase.Size = new System.Drawing.Size(1216, 743);
             this.CDPurchase.TabIndex = 4;
-            this.CDPurchase.Text = "Change or delete purchase";
+            this.CDPurchase.Text = "Change purchase";
             this.CDPurchase.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel11
@@ -517,29 +547,32 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.64286F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.357143F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.64286F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(1345, 803);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(1077, 672);
             this.tableLayoutPanel11.TabIndex = 15;
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 46);
+            this.dataGridView4.Location = new System.Drawing.Point(3, 38);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(666, 352);
+            this.dataGridView4.Size = new System.Drawing.Size(532, 293);
             this.dataGridView4.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.dataGridView4, "This displays the purchase invoice information.");
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel1.Controls.Add(this.label35, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(675, 447);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(541, 372);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
@@ -572,28 +605,32 @@
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Location = new System.Drawing.Point(254, 17);
+            this.textBox4.Location = new System.Drawing.Point(252, 17);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(218, 29);
             this.textBox4.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox4, "Enter an item name to change.");
             // 
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Location = new System.Drawing.Point(255, 80);
+            this.textBox5.Location = new System.Drawing.Point(253, 80);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(216, 29);
             this.textBox5.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.textBox5, "Enter the quantity to change.");
             // 
             // panel5
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
             this.panel5.Controls.Add(this.label37);
-            this.panel5.Location = new System.Drawing.Point(264, 136);
+            this.panel5.Location = new System.Drawing.Point(263, 136);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(197, 58);
             this.panel5.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.panel5, "This button changes the selected purchase order.");
+            this.panel5.Click += new System.EventHandler(this.panel5_Click);
             // 
             // label37
             // 
@@ -605,32 +642,37 @@
             this.label37.Size = new System.Drawing.Size(137, 30);
             this.label37.TabIndex = 0;
             this.label37.Text = "Change item";
+            this.toolTip1.SetToolTip(this.label37, "This button changes the selected purchase order.");
+            this.label37.Click += new System.EventHandler(this.label37_Click);
             // 
             // label40
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(675, 401);
+            this.label40.Location = new System.Drawing.Point(541, 334);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(332, 37);
+            this.label40.Size = new System.Drawing.Size(332, 35);
             this.label40.TabIndex = 14;
             this.label40.Text = "Change item from invoice";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 447);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 372);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(666, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(532, 297);
             this.dataGridView1.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.dataGridView1, "This displays all items from the selected purchase invoice above.");
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(675, 0);
+            this.label34.Location = new System.Drawing.Point(541, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(322, 37);
+            this.label34.Size = new System.Drawing.Size(322, 35);
             this.label34.TabIndex = 9;
             this.label34.Text = "Change purchase invoice";
             // 
@@ -639,7 +681,7 @@
             this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel9.Controls.Add(this.label28, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.textBox12, 1, 0);
             this.tableLayoutPanel9.Controls.Add(this.label29, 0, 0);
@@ -647,9 +689,9 @@
             this.tableLayoutPanel9.Controls.Add(this.textBox13, 1, 3);
             this.tableLayoutPanel9.Controls.Add(this.label33, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.dateTimePicker3, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.textBox14, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.panel13, 1, 4);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(675, 46);
+            this.tableLayoutPanel9.Controls.Add(this.comboBox4, 1, 1);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(541, 38);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 5;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
@@ -657,14 +699,14 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(505, 312);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(505, 293);
             this.tableLayoutPanel9.TabIndex = 10;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(3, 59);
+            this.label28.Location = new System.Drawing.Point(3, 55);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(93, 30);
             this.label28.TabIndex = 16;
@@ -673,10 +715,11 @@
             // textBox12
             // 
             this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox12.Location = new System.Drawing.Point(254, 15);
+            this.textBox12.Location = new System.Drawing.Point(252, 13);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(218, 29);
             this.textBox12.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox12, "This displays the selected invoice ID. \r\n\r\n");
             // 
             // label29
             // 
@@ -692,7 +735,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(3, 177);
+            this.label32.Location = new System.Drawing.Point(3, 165);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(62, 30);
             this.label32.TabIndex = 2;
@@ -701,16 +744,17 @@
             // textBox13
             // 
             this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox13.Location = new System.Drawing.Point(255, 192);
+            this.textBox13.Location = new System.Drawing.Point(253, 178);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(216, 29);
             this.textBox13.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.textBox13, "Enter a total amount for the purchase invoice.");
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(3, 118);
+            this.label33.Location = new System.Drawing.Point(3, 110);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(62, 30);
             this.label33.TabIndex = 3;
@@ -719,28 +763,23 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker3.Location = new System.Drawing.Point(254, 133);
+            this.dateTimePicker3.Location = new System.Drawing.Point(253, 123);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(217, 29);
             this.dateTimePicker3.TabIndex = 2;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox14.Location = new System.Drawing.Point(254, 74);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(218, 29);
-            this.textBox14.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.dateTimePicker3, "Choose a date by selecting the down arrow.");
             // 
             // panel13
             // 
             this.panel13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
             this.panel13.Controls.Add(this.label31);
-            this.panel13.Location = new System.Drawing.Point(264, 245);
+            this.panel13.Location = new System.Drawing.Point(263, 227);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(197, 58);
             this.panel13.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.panel13, "This button changes the selected purchase invoice record.");
+            this.panel13.Click += new System.EventHandler(this.panel13_Click);
             // 
             // label31
             // 
@@ -752,6 +791,19 @@
             this.label31.Size = new System.Drawing.Size(163, 30);
             this.label31.TabIndex = 0;
             this.label31.Text = "Change invoice";
+            this.toolTip1.SetToolTip(this.label31, "This button changes the selected purchase invoice record.");
+            this.label31.Click += new System.EventHandler(this.label31_Click);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(255, 68);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(213, 29);
+            this.comboBox4.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.comboBox4, "Choose a supplier by selecting the down arrow.");
             // 
             // MaintainSupp
             // 
@@ -759,7 +811,7 @@
             this.MaintainSupp.Location = new System.Drawing.Point(4, 30);
             this.MaintainSupp.Name = "MaintainSupp";
             this.MaintainSupp.Padding = new System.Windows.Forms.Padding(3);
-            this.MaintainSupp.Size = new System.Drawing.Size(1382, 1027);
+            this.MaintainSupp.Size = new System.Drawing.Size(1216, 743);
             this.MaintainSupp.TabIndex = 2;
             this.MaintainSupp.Text = "Suppliers";
             this.MaintainSupp.UseVisualStyleBackColor = true;
@@ -769,6 +821,7 @@
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel15, 1, 0);
             this.tableLayoutPanel12.Controls.Add(this.dataGridView2, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel3, 1, 2);
             this.tableLayoutPanel12.Controls.Add(this.label13, 0, 1);
@@ -780,16 +833,19 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(1413, 799);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(1115, 709);
             this.tableLayoutPanel12.TabIndex = 15;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(700, 357);
+            this.dataGridView2.Size = new System.Drawing.Size(551, 316);
             this.dataGridView2.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.dataGridView2, "This displays all supplier information.");
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // tableLayoutPanel3
             // 
@@ -805,7 +861,7 @@
             this.tableLayoutPanel3.Controls.Add(this.textBox3, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 4);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(709, 438);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(560, 389);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
@@ -845,6 +901,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(239, 29);
             this.textBox2.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox2, "This displays the selected supllier ID.");
             // 
             // label1
             // 
@@ -863,6 +920,7 @@
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(239, 29);
             this.maskedTextBox4.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.maskedTextBox4, "Enter a supplier email address to change.");
             // 
             // maskedTextBox3
             // 
@@ -871,6 +929,7 @@
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(239, 29);
             this.maskedTextBox3.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.maskedTextBox3, "Enter a supplier contact number to change.");
             // 
             // textBox3
             // 
@@ -879,6 +938,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(239, 29);
             this.textBox3.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.textBox3, "Enter a supplier name to change.");
             // 
             // label3
             // 
@@ -899,6 +959,8 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 58);
             this.panel3.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.panel3, "This button changes the selected supplier record information.");
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label8
             // 
@@ -910,12 +972,14 @@
             this.label8.Size = new System.Drawing.Size(120, 40);
             this.label8.TabIndex = 0;
             this.label8.Text = "Change";
+            this.toolTip1.SetToolTip(this.label8, "This button changes the selected supplier record information.");
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 363);
+            this.label13.Location = new System.Drawing.Point(3, 322);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(229, 37);
             this.label13.TabIndex = 8;
@@ -925,7 +989,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(709, 363);
+            this.label12.Location = new System.Drawing.Point(560, 322);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(215, 37);
             this.label12.TabIndex = 11;
@@ -944,14 +1008,14 @@
             this.tableLayoutPanel4.Controls.Add(this.maskedTextBox1, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.maskedTextBox2, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 438);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 389);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(700, 312);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(551, 312);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
             // label14
@@ -989,10 +1053,12 @@
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(107)))));
             this.panel6.Controls.Add(this.label18);
-            this.panel6.Location = new System.Drawing.Point(220, 251);
+            this.panel6.Location = new System.Drawing.Point(153, 251);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(197, 58);
             this.panel6.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.panel6, "This button adds a new supplier.");
+            this.panel6.Click += new System.EventHandler(this.panel6_Click);
             // 
             // label18
             // 
@@ -1004,30 +1070,35 @@
             this.label18.Size = new System.Drawing.Size(73, 40);
             this.label18.TabIndex = 0;
             this.label18.Text = "Add";
+            this.toolTip1.SetToolTip(this.label18, "This button adds a new supplier.");
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // maskedTextBox1
             // 
             this.maskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox1.Location = new System.Drawing.Point(189, 95);
+            this.maskedTextBox1.Location = new System.Drawing.Point(141, 95);
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(259, 29);
+            this.maskedTextBox1.Size = new System.Drawing.Size(221, 29);
             this.maskedTextBox1.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.maskedTextBox1, "Enter a supplier contact number to add.");
             // 
             // maskedTextBox2
             // 
             this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox2.Location = new System.Drawing.Point(189, 168);
+            this.maskedTextBox2.Location = new System.Drawing.Point(141, 168);
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(259, 29);
+            this.maskedTextBox2.Size = new System.Drawing.Size(221, 29);
             this.maskedTextBox2.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.maskedTextBox2, "Enter a supplier email address to add.");
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(189, 22);
+            this.textBox1.Location = new System.Drawing.Point(141, 22);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 29);
+            this.textBox1.Size = new System.Drawing.Size(221, 29);
             this.textBox1.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.textBox1, "Enter a supplier name to add.");
             // 
             // MaintainItems
             // 
@@ -1035,7 +1106,7 @@
             this.MaintainItems.Location = new System.Drawing.Point(4, 30);
             this.MaintainItems.Name = "MaintainItems";
             this.MaintainItems.Padding = new System.Windows.Forms.Padding(3);
-            this.MaintainItems.Size = new System.Drawing.Size(1382, 1027);
+            this.MaintainItems.Size = new System.Drawing.Size(1216, 743);
             this.MaintainItems.TabIndex = 3;
             this.MaintainItems.Text = "Items";
             this.MaintainItems.UseVisualStyleBackColor = true;
@@ -1045,6 +1116,7 @@
             this.tableLayoutPanel13.ColumnCount = 2;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 1, 0);
             this.tableLayoutPanel13.Controls.Add(this.dataGridView3, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel8, 0, 2);
             this.tableLayoutPanel13.Controls.Add(this.label23, 0, 1);
@@ -1056,16 +1128,19 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(1378, 787);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(1182, 715);
             this.tableLayoutPanel13.TabIndex = 18;
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(683, 351);
+            this.dataGridView3.Size = new System.Drawing.Size(585, 319);
             this.dataGridView3.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.dataGridView3, "This displays all item information.");
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // tableLayoutPanel8
             // 
@@ -1080,14 +1155,14 @@
             this.tableLayoutPanel8.Controls.Add(this.maskedTextBox7, 1, 1);
             this.tableLayoutPanel8.Controls.Add(this.maskedTextBox8, 1, 2);
             this.tableLayoutPanel8.Controls.Add(this.textBox9, 1, 0);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 431);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 392);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 4;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.80952F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(683, 312);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(585, 312);
             this.tableLayoutPanel8.TabIndex = 14;
             // 
             // label24
@@ -1125,10 +1200,12 @@
             this.panel11.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(107)))));
             this.panel11.Controls.Add(this.label27);
-            this.panel11.Location = new System.Drawing.Point(213, 251);
+            this.panel11.Location = new System.Drawing.Point(168, 251);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(197, 58);
             this.panel11.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.panel11, "This button adds a new item.");
+            this.panel11.Click += new System.EventHandler(this.panel11_Click);
             // 
             // label27
             // 
@@ -1140,36 +1217,41 @@
             this.label27.Size = new System.Drawing.Size(73, 40);
             this.label27.TabIndex = 0;
             this.label27.Text = "Add";
+            this.toolTip1.SetToolTip(this.label27, "This button adds a new item.");
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // maskedTextBox7
             // 
             this.maskedTextBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox7.Location = new System.Drawing.Point(182, 95);
+            this.maskedTextBox7.Location = new System.Drawing.Point(149, 95);
             this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(259, 29);
+            this.maskedTextBox7.Size = new System.Drawing.Size(235, 29);
             this.maskedTextBox7.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.maskedTextBox7, "Enter an item description to add.");
             // 
             // maskedTextBox8
             // 
             this.maskedTextBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBox8.Location = new System.Drawing.Point(182, 168);
+            this.maskedTextBox8.Location = new System.Drawing.Point(149, 168);
             this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(259, 29);
+            this.maskedTextBox8.Size = new System.Drawing.Size(235, 29);
             this.maskedTextBox8.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.maskedTextBox8, "Enter the item\'s price to add.");
             // 
             // textBox9
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Location = new System.Drawing.Point(182, 22);
+            this.textBox9.Location = new System.Drawing.Point(149, 22);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(259, 29);
+            this.textBox9.Size = new System.Drawing.Size(235, 29);
             this.textBox9.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.textBox9, "Enter an item name to add.");
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 357);
+            this.label23.Location = new System.Drawing.Point(3, 325);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(186, 37);
             this.label23.TabIndex = 13;
@@ -1180,7 +1262,7 @@
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.tableLayoutPanel7.Controls.Add(this.textBox11, 1, 3);
             this.tableLayoutPanel7.Controls.Add(this.textBox10, 1, 2);
             this.tableLayoutPanel7.Controls.Add(this.label21, 0, 0);
@@ -1190,7 +1272,7 @@
             this.tableLayoutPanel7.Controls.Add(this.textBox7, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.textBox8, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.panel10, 1, 4);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(692, 431);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(594, 392);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 5;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
@@ -1205,18 +1287,20 @@
             // textBox11
             // 
             this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox11.Location = new System.Drawing.Point(270, 192);
+            this.textBox11.Location = new System.Drawing.Point(269, 192);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(239, 29);
             this.textBox11.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.textBox11, "Enter an item price to change.");
             // 
             // textBox10
             // 
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Location = new System.Drawing.Point(270, 133);
+            this.textBox10.Location = new System.Drawing.Point(269, 133);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(239, 29);
             this.textBox10.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.textBox10, "Enter an item description to change.");
             // 
             // label21
             // 
@@ -1261,29 +1345,33 @@
             // textBox7
             // 
             this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Location = new System.Drawing.Point(270, 15);
+            this.textBox7.Location = new System.Drawing.Point(269, 15);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(239, 29);
             this.textBox7.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.textBox7, "This displays the selected item ID.");
             // 
             // textBox8
             // 
             this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Location = new System.Drawing.Point(270, 74);
+            this.textBox8.Location = new System.Drawing.Point(269, 74);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(239, 29);
             this.textBox8.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.textBox8, "Enter an item name to change.");
             // 
             // panel10
             // 
             this.panel10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
             this.panel10.Controls.Add(this.label20);
-            this.panel10.Location = new System.Drawing.Point(291, 245);
+            this.panel10.Location = new System.Drawing.Point(290, 245);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(197, 58);
             this.panel10.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.panel10, "This button changes the selected item information.");
+            this.panel10.Click += new System.EventHandler(this.panel10_Click);
             // 
             // label20
             // 
@@ -1295,22 +1383,96 @@
             this.label20.Size = new System.Drawing.Size(120, 40);
             this.label20.TabIndex = 0;
             this.label20.Text = "Change";
+            this.toolTip1.SetToolTip(this.label20, "This button changes the selected item information.");
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(692, 357);
+            this.label22.Location = new System.Drawing.Point(594, 325);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(172, 37);
             this.label22.TabIndex = 16;
             this.label22.Text = "Change item";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.txtSearchItem, 1, 0);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(594, 3);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 2;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(535, 156);
+            this.tableLayoutPanel14.TabIndex = 19;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(55, 24);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(156, 30);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Search an item:";
+            // 
+            // txtSearchItem
+            // 
+            this.txtSearchItem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSearchItem.Location = new System.Drawing.Point(286, 24);
+            this.txtSearchItem.Name = "txtSearchItem";
+            this.txtSearchItem.Size = new System.Drawing.Size(229, 29);
+            this.txtSearchItem.TabIndex = 0;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Controls.Add(this.label36, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.txtSearchSupp, 1, 0);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(560, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 2;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(535, 156);
+            this.tableLayoutPanel15.TabIndex = 16;
+            // 
+            // label36
+            // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(45, 24);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(176, 30);
+            this.label36.TabIndex = 14;
+            this.label36.Text = "Search a supplier:";
+            // 
+            // txtSearchSupp
+            // 
+            this.txtSearchSupp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSearchSupp.Location = new System.Drawing.Point(286, 24);
+            this.txtSearchSupp.Name = "txtSearchSupp";
+            this.txtSearchSupp.Size = new System.Drawing.Size(229, 29);
+            this.txtSearchSupp.TabIndex = 0;
+            // 
             // frmPurchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1390, 1061);
+            this.ClientSize = new System.Drawing.Size(1224, 777);
             this.Controls.Add(this.addPage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPurchases";
@@ -1370,6 +1532,11 @@
             this.tableLayoutPanel7.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1457,7 +1624,6 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Label label40;
@@ -1476,7 +1642,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox txtSearchSupp;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtSearchItem;
     }
 }
