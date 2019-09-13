@@ -71,7 +71,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSearchVar = new System.Windows.Forms.TextBox();
             this.lblAddVar1 = new System.Windows.Forms.Label();
-            this.dgVariants = new System.Windows.Forms.DataGridView();
+            this.datagridVariante = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCDVar2 = new System.Windows.Forms.Label();
             this.lblCDVar4 = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             this.MaintainVariant.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridVariante)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -117,7 +117,6 @@
             // 
             this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.monthCalendar1.BackColor = System.Drawing.Color.White;
-            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(2, 1);
             this.monthCalendar1.Location = new System.Drawing.Point(18, 25);
             this.monthCalendar1.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
@@ -157,7 +156,7 @@
             this.Info.Controls.Add(this.panel1);
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
-            this.Info.Padding = new System.Windows.Forms.Padding(3);
+            this.Info.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Info.Size = new System.Drawing.Size(1286, 701);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
@@ -217,7 +216,7 @@
             this.listBox1.Location = new System.Drawing.Point(194, 101);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(473, 235);
+            this.listBox1.Size = new System.Drawing.Size(473, 214);
             this.listBox1.TabIndex = 3;
             // 
             // streep
@@ -246,7 +245,7 @@
             this.MaintainGC.Controls.Add(this.tableLayoutPanel6);
             this.MaintainGC.Location = new System.Drawing.Point(4, 30);
             this.MaintainGC.Name = "MaintainGC";
-            this.MaintainGC.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintainGC.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaintainGC.Size = new System.Drawing.Size(1286, 701);
             this.MaintainGC.TabIndex = 1;
             this.MaintainGC.Text = "Growth cycles";
@@ -273,6 +272,7 @@
             // 
             // dgGROWT
             // 
+            this.dgGROWT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgGROWT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgGROWT.Location = new System.Drawing.Point(3, 3);
             this.dgGROWT.Name = "dgGROWT";
@@ -368,7 +368,7 @@
             // 
             this.cmbVarADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarADD.FormattingEnabled = true;
-            this.cmbVarADD.Location = new System.Drawing.Point(204, 17);
+            this.cmbVarADD.Location = new System.Drawing.Point(204, 13);
             this.cmbVarADD.Name = "cmbVarADD";
             this.cmbVarADD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarADD.TabIndex = 4;
@@ -534,7 +534,7 @@
             this.MaintainVariant.Controls.Add(this.tableLayoutPanel7);
             this.MaintainVariant.Location = new System.Drawing.Point(4, 30);
             this.MaintainVariant.Name = "MaintainVariant";
-            this.MaintainVariant.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintainVariant.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaintainVariant.Size = new System.Drawing.Size(1286, 701);
             this.MaintainVariant.TabIndex = 2;
             this.MaintainVariant.Text = "Variants";
@@ -547,7 +547,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel14, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.lblAddVar1, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.dgVariants, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.datagridVariante, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel3, 1, 2);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.lblCDVar1, 1, 1);
@@ -593,6 +593,7 @@
             this.txtSearchVar.Name = "txtSearchVar";
             this.txtSearchVar.Size = new System.Drawing.Size(229, 29);
             this.txtSearchVar.TabIndex = 0;
+            this.txtSearchVar.TextChanged += new System.EventHandler(this.txtSearchVar_TextChanged);
             // 
             // lblAddVar1
             // 
@@ -604,14 +605,15 @@
             this.lblAddVar1.TabIndex = 8;
             this.lblAddVar1.Text = "Add new variant:";
             // 
-            // dgVariants
+            // datagridVariante
             // 
-            this.dgVariants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgVariants.Location = new System.Drawing.Point(3, 3);
-            this.dgVariants.Name = "dgVariants";
-            this.dgVariants.Size = new System.Drawing.Size(597, 316);
-            this.dgVariants.TabIndex = 5;
-            this.dgVariants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVariants_CellClick);
+            this.datagridVariante.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridVariante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridVariante.Location = new System.Drawing.Point(3, 3);
+            this.datagridVariante.Name = "datagridVariante";
+            this.datagridVariante.Size = new System.Drawing.Size(597, 316);
+            this.datagridVariante.TabIndex = 5;
+            this.datagridVariante.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgVariants_CellClick);
             // 
             // tableLayoutPanel3
             // 
@@ -842,7 +844,7 @@
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgVariants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridVariante)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -898,7 +900,7 @@
         private System.Windows.Forms.Label lblCDVar3;
         private System.Windows.Forms.Label lblCDVar4;
         private System.Windows.Forms.Label lblCDVar1;
-        private System.Windows.Forms.DataGridView dgVariants;
+        private System.Windows.Forms.DataGridView datagridVariante;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label12;

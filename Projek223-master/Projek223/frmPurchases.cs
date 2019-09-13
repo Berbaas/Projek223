@@ -127,7 +127,7 @@ namespace Projek223
             {
                 conn = new SqlConnection(connstring);
                 conn.Open();
-                string sqlSupplier = @"SELECT * FROM SUPPLIER";
+                string sqlSupplier = @"SELECT Supplier_Name FROM SUPPLIER";
 
                 comm = new SqlCommand(sqlSupplier, conn);
 
@@ -135,9 +135,9 @@ namespace Projek223
 
                 while (read.Read())
                 {
-                    if (!comboBox1.Items.Contains(read.GetValue(1)))
+                    if (!comboBox1.Items.Contains(read.GetValue(0)))
                     {
-                        comboBox1.Items.Add(read.GetValue(1));
+                        comboBox1.Items.Add(read.GetValue(0));
                     }
                 }
 
@@ -154,7 +154,7 @@ namespace Projek223
             try
             {
                 conn.Open();
-                string sqlItem = @"SELECT * FROM ITEM";
+                string sqlItem = @"SELECT Item FROM ITEM";
 
                 comm = new SqlCommand(sqlItem, conn);
 
@@ -162,13 +162,9 @@ namespace Projek223
 
                 while (read.Read())
                 {
-                    if (!comboBox2.Items.Contains(read.GetValue(2)))
+                    if (!comboBox2.Items.Contains(read.GetValue(0)))
                     {
-                        comboBox2.Items.Add(read.GetValue(2));
-                    }
-                    if (!comboBox3.Items.Contains(read.GetValue(1)))
-                    {
-                        comboBox3.Items.Add(read.GetValue(1));
+                        comboBox2.Items.Add(read.GetValue(0));
                     }
 
                 }
@@ -259,7 +255,7 @@ namespace Projek223
                         try
                         {
                             string item = comboBox2.SelectedItem.ToString();
-                            listBox1.Items.Add(item + "       " + quantity);
+                            listBox1.Items.Add(comboBox3.Text+"       "+item + "       " + quantity);
                         }
                         catch (Exception)
                         {
@@ -362,7 +358,7 @@ namespace Projek223
                     {
                         try
                         {
-                            string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox2.Text + "'";
+                            string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox2.Text + "' AND Item_Description = '" + comboBox3.Text + "'";
                             int item = 0;
                             decimal price = 0;
 
@@ -378,7 +374,7 @@ namespace Projek223
                             }
                             read.Close();
 
-                            total = price * quantity;
+                            total += price * quantity;
 
                             string addOrder = @"INSERT INTO PURCHASE_ORDER VALUES(@id, @item,@quantity)";
 
@@ -394,7 +390,8 @@ namespace Projek223
 
 
                             comboBox2.SelectedIndex = -1;
-                            comboBox3.SelectedIndex = -1;
+                            comboBox3.Items.Clear();
+                            comboBox3.Text = "";
                             textBox6.Text = "";
 
                         }
@@ -510,7 +507,7 @@ namespace Projek223
                 {
                     try
                     {
-                        string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox5.Text + "'";
+                        string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox5.Text + "' AND Item_Description = '" + comboBox6.Text + "'";
 
                         int item = 0;
 
@@ -525,7 +522,8 @@ namespace Projek223
                         }
                         read.Close();
 
-                        string changeOrder = @"UPDATE PURCHASE_ORDER SET Item_ID = @item, Quantity_Bought = @quantity WHERE PURCHASE_ORDER_ID = '" + int.Parse(textBox12.Text) + "'";
+                        string changeOrder = @"UPDATE PURCHASE_ORDER SET Item_ID = @item, Quantity_Bought = @quantity WHERE PURCHASE_ORDER_ID = '" + int.Parse(textBox12.Text) + "' "
+                            +"AND ";
 
                         comm = new SqlCommand(changeOrder, conn);
 
@@ -886,6 +884,9 @@ namespace Projek223
 
             comm.ExecuteNonQuery();
             conn.Close();
+
+            listBox1.Items.Clear();
+            comboBox1.Text = "";
         }
     
         private void panel8_Click(object sender, EventArgs e)
@@ -966,7 +967,7 @@ namespace Projek223
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            ChangeSupplier();
+            
         }
 
         private void label27_Click(object sender, EventArgs e)
@@ -992,6 +993,9 @@ namespace Projek223
         //Fill textboxes with datagridview records
         private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs dg4)
         {
+            comboBox5.Text = "";
+            comboBox6.Text = "";
+            textBox5.Text = "";
             if (dg4.RowIndex >= 0)
             {
                 textBox12.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString();
@@ -1008,7 +1012,7 @@ namespace Projek223
                              "FROM PURCHASE_ORDER " +
                              "LEFT JOIN ITEM " +
                              "ON PURCHASE_ORDER.Item_ID = ITEM.Item_ID " +
-                             "WHERE PURCHASE_ORDER.Purchase_Order_ID = '" + Convert.ToInt32(ID) + "'";   
+                             "WHERE PURCHASE_ORDER.Purchase_Order_ID = '" + Convert.ToInt32(ID) + "'";
 
                 try
                 {
@@ -1029,6 +1033,7 @@ namespace Projek223
                     conn.Close();
 
                     string sql2 = @"SELECT Item_Description FROM ITEM WHERE Item = '" + comboBox5.Text + "'";
+                    string sql3 = @"SELECT Item FROM ITEM";
                     conn = new SqlConnection(connstring);
                     conn.Open();
 
@@ -1041,6 +1046,23 @@ namespace Projek223
                         if (!comboBox6.Items.Contains(read.GetValue(0)))
                         {
                             comboBox6.Items.Add(read.GetValue(0));
+                        }
+                    }
+
+                    conn.Close();
+
+                    conn = new SqlConnection(connstring);
+                    conn.Open();
+
+                    comm = new SqlCommand(sql3, conn);
+
+                    read = comm.ExecuteReader();
+
+                    while (read.Read())
+                    {
+                        if (!comboBox5.Items.Contains(read.GetValue(0)))
+                        {
+                            comboBox5.Items.Add(read.GetValue(0));
                         }
                     }
 
@@ -1099,6 +1121,95 @@ namespace Projek223
 
                 conn.Close();
 
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox3.Items.Clear();
+            try
+            {
+                conn = new SqlConnection(connstring);
+                conn.Open();
+                string sqlSupplier = @"SELECT Item_Description FROM ITEM WHERE Item = '" + comboBox2.Text+"'";
+
+                comm = new SqlCommand(sqlSupplier, conn);
+
+                read = comm.ExecuteReader();
+
+                while (read.Read())
+                {
+                    if (!comboBox3.Items.Contains(read.GetValue(0)))
+                    {
+                        comboBox3.Items.Add(read.GetValue(0));
+                    }
+                }
+
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not fill description");
+            }
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            ChangeSupplier();
+        }
+
+        private void txtSearchSupp_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = "SELECT * from SUPPLIERS WHERE Supplier_Name LIKE'%" + txtSearchSupp.Text + "%'";
+                conn = new SqlConnection(connstring);
+                conn.Close();
+                conn.Open();
+
+                comm = new SqlCommand(sql, conn);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
+
+                adapt.SelectCommand = comm;
+                adapt.Fill(ds, "Data");
+
+                dataGridView2.DataMember = "Data";
+                dataGridView2.DataSource = ds;
+
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void txtSearchItem_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = "SELECT * from ITEM WHERE Item LIKE'%" + txtSearchItem.Text + "%' OR Item_Description = LIKE'%" + txtSearchItem.Text + "%'";
+                conn = new SqlConnection(connstring);
+                conn.Close();
+                conn.Open();
+
+                comm = new SqlCommand(sql, conn);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
+
+                adapt.SelectCommand = comm;
+                adapt.Fill(ds, "Data");
+
+                dataGridView3.DataMember = "Data";
+                dataGridView3.DataSource = ds;
+
+                conn.Close();
             }
             catch (SqlException er)
             {

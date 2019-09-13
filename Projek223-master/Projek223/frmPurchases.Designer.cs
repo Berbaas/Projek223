@@ -61,11 +61,14 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label34 = new System.Windows.Forms.Label();
@@ -138,9 +141,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.addPage.SuspendLayout();
             this.Info.SuspendLayout();
             this.MaintainPurch.SuspendLayout();
@@ -366,17 +366,18 @@
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(257, 12);
+            this.comboBox2.Location = new System.Drawing.Point(257, 16);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(218, 29);
             this.comboBox2.TabIndex = 5;
             this.toolTip1.SetToolTip(this.comboBox2, "Choose an item name by selecting the down arrow.");
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBox3
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(257, 66);
+            this.comboBox3.Location = new System.Drawing.Point(257, 70);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(218, 29);
             this.comboBox3.TabIndex = 6;
@@ -471,7 +472,7 @@
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(257, 21);
+            this.comboBox1.Location = new System.Drawing.Point(257, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(218, 29);
             this.comboBox1.TabIndex = 4;
@@ -583,33 +584,34 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.06976F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(505, 205);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(505, 236);
             this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(255, 73);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(213, 29);
+            this.comboBox6.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.comboBox6, "Choose a supplier by selecting the down arrow.");
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(3, 97);
+            this.label35.Location = new System.Drawing.Point(3, 111);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(98, 30);
             this.label35.TabIndex = 15;
             this.label35.Text = "Quantity:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 30);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Item:";
-            // 
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Location = new System.Drawing.Point(253, 106);
+            this.textBox5.Location = new System.Drawing.Point(253, 123);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(216, 29);
             this.textBox5.TabIndex = 9;
@@ -620,7 +622,7 @@
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
             this.panel5.Controls.Add(this.label37);
-            this.panel5.Location = new System.Drawing.Point(263, 147);
+            this.panel5.Location = new System.Drawing.Point(263, 173);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(197, 55);
             this.panel5.TabIndex = 6;
@@ -639,6 +641,38 @@
             this.label37.Text = "Change item";
             this.toolTip1.SetToolTip(this.label37, "This button changes the selected purchase order.");
             this.label37.Click += new System.EventHandler(this.label37_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 30);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Item:";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(255, 18);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(213, 29);
+            this.comboBox5.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.comboBox5, "Choose a supplier by selecting the down arrow.");
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(3, 57);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(123, 30);
+            this.label38.TabIndex = 19;
+            this.label38.Text = "Description:";
             // 
             // label40
             // 
@@ -712,6 +746,7 @@
             this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox12.Location = new System.Drawing.Point(252, 13);
             this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(218, 29);
             this.textBox12.TabIndex = 14;
             this.toolTip1.SetToolTip(this.textBox12, "This displays the selected invoice ID. \r\n\r\n");
@@ -793,7 +828,7 @@
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(255, 68);
+            this.comboBox4.Location = new System.Drawing.Point(255, 72);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(213, 29);
@@ -864,6 +899,7 @@
             this.txtSearchSupp.Name = "txtSearchSupp";
             this.txtSearchSupp.Size = new System.Drawing.Size(229, 29);
             this.txtSearchSupp.TabIndex = 0;
+            this.txtSearchSupp.TextChanged += new System.EventHandler(this.txtSearchSupp_TextChanged);
             // 
             // dataGridView2
             // 
@@ -989,6 +1025,7 @@
             this.panel3.Size = new System.Drawing.Size(197, 58);
             this.panel3.TabIndex = 6;
             this.toolTip1.SetToolTip(this.panel3, "This button changes the selected supplier record information.");
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label8
@@ -1193,6 +1230,7 @@
             this.txtSearchItem.Name = "txtSearchItem";
             this.txtSearchItem.Size = new System.Drawing.Size(229, 29);
             this.txtSearchItem.TabIndex = 0;
+            this.txtSearchItem.TextChanged += new System.EventHandler(this.txtSearchItem_TextChanged);
             // 
             // dataGridView3
             // 
@@ -1462,39 +1500,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(255, 10);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(213, 29);
-            this.comboBox5.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.comboBox5, "Choose a supplier by selecting the down arrow.");
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(3, 50);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(123, 30);
-            this.label38.TabIndex = 19;
-            this.label38.Text = "Description:";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(255, 59);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(213, 29);
-            this.comboBox6.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.comboBox6, "Choose a supplier by selecting the down arrow.");
             // 
             // frmPurchases
             // 

@@ -311,8 +311,8 @@ namespace Projek223
                 adapt.SelectCommand = command;
                 adapt.Fill(ds, "Info");
 
-                dgVariants.DataMember = "Info";
-                dgVariants.DataSource = ds;
+                datagridVariante.DataMember = "Info";
+                datagridVariante.DataSource = ds;
 
                 con.Close();
 
@@ -429,7 +429,7 @@ namespace Projek223
             if (o.RowIndex >= 0)
             {
                 //gets a collection that contains all the rows
-                DataGridViewRow row2 = dgVariants.Rows[o.RowIndex];
+                DataGridViewRow row2 = datagridVariante.Rows[o.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
                 txtID.Text = row2.Cells[0].Value.ToString();
                 txtDaysCD.Text = row2.Cells[1].Value.ToString();
@@ -465,6 +465,32 @@ namespace Projek223
         private void cmbVarCD_SelectedIndexChanged(object sender, EventArgs e)
         {
             errorProvider1.SetError(cmbVarCD, "");
+        }
+
+        private void txtSearchVar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = "SELECT * from SEED_VARIANT WHERE Description LIKE'%" + txtSearchVar.Text + "%'";
+                con = new SqlConnection(constr);
+                con.Open();
+
+                command = new SqlCommand(sql, con);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
+
+                adapt.SelectCommand = command;
+                adapt.Fill(ds, "Info");
+
+                datagridVariante.DataMember = "Info";
+                datagridVariante.DataSource = ds;
+
+                con.Close();
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
     }
 }

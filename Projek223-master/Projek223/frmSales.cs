@@ -329,69 +329,74 @@ namespace Projek223
         public void AddNewSaleProduct()
         {
             errorProvider1.SetError(comboBox2, "");
-            errorProvider1.SetError(comboBox6, "");
-            errorProvider1.SetError(textBox20, "");
+            errorProvider1.SetError(comboBox3, "");
+            errorProvider1.SetError(textBox6, "");
 
             if (comboBox2.SelectedItem != null)
             {
-                if (comboBox6.SelectedItem != null)
+                if (comboBox3.SelectedItem != null)
                 {
-                    if (int.TryParse(textBox20.Text, out int quantity))
+                    if (int.TryParse(textBox6.Text, out int quantity))
                     {
                         try
                         {
-                            //Select varaiant and price
-                            string variant = @"SELECT Variant FROM SEED_VARIANT WHERE Description = '" + comboBox2.Text + "'";
+                            string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox2.Text + "' AND Item_Description = '" + comboBox3.Text + "'";
+                            int item = 0;
                             decimal price = 0;
 
+
                             conn.Open();
-                            comm = new SqlCommand(variant, conn);
+
+                            comm = new SqlCommand(item_id, conn);
                             read = comm.ExecuteReader();
                             while (read.Read())
                             {
-                                
+                                item = read.GetInt32(0);
                                 price = read.GetDecimal(3);
                             }
                             read.Close();
 
-                            total = price * quantity;
+                            total += price * quantity;
 
-                            string addOrder = @"INSERT INTO SALES VALUES(@id, @product, @quantity)";
+                            string addOrder = @"INSERT INTO PURCHASE_ORDER VALUES(@id, @item,@quantity)";
 
                             comm = new SqlCommand(addOrder, conn);
 
-                            comm.Parameters.AddWithValue("@id", Sales_ID);
-                            comm.Parameters.AddWithValue("@product", variant);
+                            comm.Parameters.AddWithValue("@ID", item_id);
+                            comm.Parameters.AddWithValue("@item", item);
                             comm.Parameters.AddWithValue("@quantity", quantity);
 
                             comm.ExecuteNonQuery();
 
                             conn.Close();
 
+
                             comboBox2.SelectedIndex = -1;
-                            comboBox6.SelectedIndex = -1;
-                            textBox20.Text = "";
+                            comboBox3.Items.Clear();
+                            comboBox3.Text = "";
+                            textBox6.Text = "";
+
                         }
                         catch (SqlException ex)
                         {
-                            MessageBox.Show(ex.Message, "Could not add product.");
+                            MessageBox.Show(ex.Message, "Could not add item.");
                         }
                     }
                     else
                     {
-                        errorProvider1.SetError(textBox20, "Select a valid integer for quantity.");
+                        errorProvider1.SetError(textBox6, "Enter a valid integer for quantity.");
                         textBox6.Focus();
                     }
                 }
                 else
                 {
-                    errorProvider1.SetError(comboBox6, "Select a description.");
-                    comboBox6.Focus();
+                    errorProvider1.SetError(comboBox3, "Select a description.");
+                    comboBox3.Focus();
                 }
             }
             else
             {
-                errorProvider1.SetError(comboBox2, "Select a variant.");
+                errorProvider1.SetError(comboBox2, "Select a item.");
                 comboBox2.Focus();
             }
         }
@@ -472,16 +477,16 @@ namespace Projek223
         //Change Product from Invoice
         public void ChangeInvoiceProduct()
         {
-            errorProvider1.SetError(textBox8, "");
-            errorProvider1.SetError(textBox9, "");
+            errorProvider1.SetError(comboBox5, "");
+            errorProvider1.SetError(comboBox3, "");
 
-            if (textBox8.Text != "")
+            if (comboBox5.Text != "")
             {
-                if (int.TryParse(textBox9.Text, out int quantity))
+                if (int.TryParse(comboBox3.Text, out int quantity))
                 {
                     try
                     {
-                        string product_id = @"SELECT * FROM PRODUCT WHERE Product = '" + textBox8.Text + "'";
+                        string product_id = @"SELECT * FROM PRODUCT WHERE Product = '" + comboBox5.Text + "'";
 
                         int product = 0;
 
@@ -496,7 +501,7 @@ namespace Projek223
                         }
                         read.Close();
 
-                        string changeOrder = @"UPDATE PRODUCT SET Product_ID = @product, Quantity_Sold = @quantity WHERE Sales_Order_ID = '" + int.Parse(textBox8.Text) + "'";
+                        string changeOrder = @"UPDATE PRODUCT SET Product_ID = @product, Quantity_Sold = @quantity WHERE Sales_Order_ID = '" + int.Parse(comboBox5.Text) + "'";
 
                         comm = new SqlCommand(changeOrder, conn);
 
@@ -507,8 +512,8 @@ namespace Projek223
 
                         conn.Close();
 
-                        textBox8.Text = "";
-                        textBox9.Text = "";
+                        comboBox5.Text = "";
+                        comboBox3.Text = "";
 
                     }
                     catch (Exception ex)
@@ -518,14 +523,14 @@ namespace Projek223
                 }
                 else
                 {
-                    errorProvider1.SetError(textBox9, "Enter a valid integer");
-                    textBox9.Focus();
+                    errorProvider1.SetError(comboBox3, "Enter a valid integer");
+                    comboBox3.Focus();
                 }
             }
             else
             {
-                errorProvider1.SetError(textBox8, "Enter a product name");
-                textBox8.Focus();
+                errorProvider1.SetError(comboBox5, "Enter a product name");
+                comboBox5.Focus();
             }
         }
 
@@ -682,7 +687,7 @@ namespace Projek223
         //Add Product
         public void AddProduct()
         {
-            errorProvider1.SetError(textBox10, "");
+            /*errorProvider1.SetError(textBox10, "");
             errorProvider1.SetError(textBox17, "");
             errorProvider1.SetError(textBox18, "");
 
@@ -735,7 +740,7 @@ namespace Projek223
             {
                 errorProvider1.SetError(textBox10, "Select a variant.");
                 textBox10.Focus();
-            }
+            }*/
         }
 
         //Change Poduct
@@ -1062,8 +1067,8 @@ namespace Projek223
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox8.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
-            textBox9.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            comboBox5.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
+            comboBox3.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void dataGridView2_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -1086,42 +1091,57 @@ namespace Projek223
 
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
         {
-            string sql = "SELECT * from CUSTOMER WHERE Customer_Name LIKE'%" + txtSearchCustomer.Text + "%' OR Customer_Surname LIKE'%" + txtSearchCustomer.Text + "%'";
-            conn = new SqlConnection(connstring);
-            conn.Close();
-            conn.Open();
+            try
+            {
+                string sql = "SELECT * from CUSTOMER WHERE Customer_Name LIKE'%" + txtSearchCustomer.Text + "%' OR Customer_Surname LIKE'%" + txtSearchCustomer.Text + "%'";
+                conn = new SqlConnection(connstring);
+                conn.Close();
+                conn.Open();
 
-            comm = new SqlCommand(sql, conn);
-            adapt = new SqlDataAdapter();
-            ds = new DataSet();
+                comm = new SqlCommand(sql, conn);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
 
-            adapt.SelectCommand = comm;
-            adapt.Fill(ds,"Data");
+                adapt.SelectCommand = comm;
+                adapt.Fill(ds,"Data");
 
-            dataGridView2.DataMember = "Data";
-            dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "Data";
+                dataGridView2.DataSource = ds;
 
-            conn.Close();
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+
         }
 
         private void txtSearchProduct_TextChanged(object sender, EventArgs e)
         {
-            string sql = "SELECT * from PRODUCT WHERE Customer_Name LIKE'%" + txtSearchCustomer.Text + "%'";
-            conn = new SqlConnection(connstring);
-            conn.Close();
-            conn.Open();
+            try
+            {
+                string sql = "SELECT * from PRODUCT WHERE Product_Description LIKE'%" + txtSearchProduct.Text + "%'";
+                conn = new SqlConnection(connstring);
+                conn.Close();
+                conn.Open();
 
-            comm = new SqlCommand(sql, conn);
-            adapt = new SqlDataAdapter();
-            ds = new DataSet();
+                comm = new SqlCommand(sql, conn);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
 
-            adapt.SelectCommand = comm;
-            adapt.Fill(ds, "Data");
+                adapt.SelectCommand = comm;
+                adapt.Fill(ds, "Data");
 
-            dataGridView4.DataMember = "Data";
-            dataGridView4.DataSource = ds;
+                dataGridView4.DataMember = "Data";
+                dataGridView4.DataSource = ds;
 
-            conn.Close();
+                conn.Close();
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
     }
 }

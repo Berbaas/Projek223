@@ -26,6 +26,9 @@ namespace Projek223
         public SqlDataAdapter adapt;
         public string folderPath;
         private string sName, sFrom, sWhere;
+        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baas\Documents\_TWEEDEJAAR\Projek 223\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
+
+
         public frmReports()
         {
             InitializeComponent();
@@ -104,7 +107,7 @@ namespace Projek223
 
             try
             {
-                string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
+               
                 conn = new SqlConnection(connectionstring);
 
                 conn.Open();
@@ -175,7 +178,7 @@ namespace Projek223
 
             try
             {
-                string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
+                
                 conn = new SqlConnection(connectionstring);
 
                 conn.Open();
@@ -450,7 +453,7 @@ namespace Projek223
         private void tabPage3_Enter(object sender, EventArgs e)
         {
             
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
+          
             conn = new SqlConnection(connectionstring);
 
             conn.Open();
@@ -483,7 +486,7 @@ namespace Projek223
 
         private void tabPage4_Enter(object sender, EventArgs e)
         {
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
+     
             conn = new SqlConnection(connectionstring);
 
             conn.Open();
@@ -515,7 +518,6 @@ namespace Projek223
 
         private void tabPage5_Enter(object sender, EventArgs e)
         {
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionstring);
 
             conn.Open();
@@ -565,8 +567,7 @@ namespace Projek223
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
-            conn = new SqlConnection(connectionstring);
+           conn = new SqlConnection(connectionstring);
 
             adapt = new SqlDataAdapter();
             ds = new DataSet();
@@ -584,7 +585,6 @@ namespace Projek223
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
             conn = new SqlConnection(connectionstring);
 
             adapt = new SqlDataAdapter();
@@ -745,8 +745,7 @@ namespace Projek223
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MicroGreensDatabase1.mdf;Integrated Security=True";
-            conn = new SqlConnection(connectionstring);
+           conn = new SqlConnection(connectionstring);
 
             adapt = new SqlDataAdapter();
             ds = new DataSet();
