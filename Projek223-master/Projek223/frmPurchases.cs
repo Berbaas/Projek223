@@ -27,6 +27,7 @@ namespace Projek223
         string ID = "";
         decimal total = 0;
         int Purchase_ID = 0;
+        string orderID;
 
         //Reload datagridviews after changes
         public void RefreshPurchase()
@@ -35,7 +36,7 @@ namespace Projek223
             {
                // string sql = @"SELECT * FROM PURCHASE_INVOICE";
 
-                string sql = @"SELECT PURCHASE_INVOICE.Purchase_Order_ID, PURCHASE_INVOICE.Purchase_Order_Date, SUPPLIER.Supplier_Name, PURCHASE_INVOICE.Total_Cost " +
+                string sql = @"SELECT PURCHASE_INVOICE.Purchase_Invoice_ID, PURCHASE_INVOICE.Purchase_Order_Date, SUPPLIER.Supplier_Name, PURCHASE_INVOICE.Total_Cost " +
                              "FROM PURCHASE_INVOICE " +
                              "LEFT JOIN SUPPLIER " +
                              "ON PURCHASE_INVOICE.Supplier_ID = SUPPLIER.Supplier_ID ";
@@ -140,6 +141,7 @@ namespace Projek223
                         comboBox1.Items.Add(read.GetValue(0));
                     }
                 }
+                read.Close();
 
                 conn.Close();
 
@@ -168,6 +170,7 @@ namespace Projek223
                     }
 
                 }
+                read.Close();
 
                 conn.Close();
 
@@ -217,6 +220,7 @@ namespace Projek223
                         comboBox4.Items.Add(read.GetValue(1));
                     }
                 }
+                read.Close();
 
                 conn.Close();
             }
@@ -362,7 +366,7 @@ namespace Projek223
                             int item = 0;
                             decimal price = 0;
 
-
+                            
                             conn.Open();
 
                             comm = new SqlCommand(item_id, conn);
@@ -377,10 +381,10 @@ namespace Projek223
                             total += price * quantity;
 
                             string addOrder = @"INSERT INTO PURCHASE_ORDER VALUES(@id, @item,@quantity)";
-
+                     
                             comm = new SqlCommand(addOrder, conn);
 
-                            comm.Parameters.AddWithValue("@ID", Purchase_ID);
+                            comm.Parameters.AddWithValue("@id", Purchase_ID);
                             comm.Parameters.AddWithValue("@item", item);
                             comm.Parameters.AddWithValue("@quantity", quantity);
 
@@ -453,7 +457,7 @@ namespace Projek223
                             string date = dateTimePicker3.Value.ToShortDateString();
 
 
-                            string changeOrder = @"UPDATE PURCHASE_INVOICE SET Purchase_Order_Date = @date, Supplier_ID = @id, Total_Cost = @cost WHERE PURCHASE_ORDER_ID = '" + int.Parse(textBox12.Text) + "'";
+                            string changeOrder = @"UPDATE PURCHASE_INVOICE SET Purchase_Order_Date = @date, Supplier_ID = @id, Total_Cost = @cost WHERE PURCHASE_INVOICE_ID = '" + int.Parse(textBox12.Text) + "'";
 
                             comm = new SqlCommand(changeOrder, conn);
 
@@ -468,6 +472,8 @@ namespace Projek223
                             textBox12.Text = "";
                             comboBox4.SelectedIndex = -1;
                             textBox13.Text = "";
+
+                            MessageBox.Show("Succesfully updated!");
 
                             conn.Close();
                         }
@@ -506,9 +512,10 @@ namespace Projek223
                 if (int.TryParse(textBox5.Text, out int quantity))
                 {
                     try
-                    {
-                        string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox5.Text + "' AND Item_Description = '" + comboBox6.Text + "'";
+                    {                             
 
+                        string item_id = @"SELECT Item_ID FROM ITEM WHERE Item = '" + comboBox5.Text + "' AND Item_Description = '" + comboBox6.Text + "'";
+                        
                         int item = 0;
 
                         conn.Open();
@@ -521,14 +528,42 @@ namespace Projek223
                             item = read.GetInt32(0);
                         }
                         read.Close();
-
-                        string changeOrder = @"UPDATE PURCHASE_ORDER SET Item_ID = @item, Quantity_Bought = @quantity WHERE PURCHASE_ORDER_ID = '" + int.Parse(textBox12.Text) + "' "
-                            +"AND ";
-
+                        
+                        string changeOrder = @"UPDATE PURCHASE_ORDER SET Item_ID = @item, Quantity_Bought = @quantity WHERE Purchase_Order_ID = '" + int.Parse(orderID) + "'";
+                    
                         comm = new SqlCommand(changeOrder, conn);
 
-                        comm.Parameters.AddWithValue("item", item);
+                        comm.Parameters.AddWithValue("@item", item);
                         comm.Parameters.AddWithValue("@quantity", quantity);
+
+                        comm.ExecuteNonQuery();
+
+                        //Hier is die prys update
+                        string sqlHou = @"SELECT PURCHASE_ORDER.Item_ID, PURCHASE_ORDER.Quantity_Bought, ITEM.Item_Price " +
+                             "FROM PURCHASE_ORDER " +
+                             "LEFT JOIN ITEM " +
+                             "ON PURCHASE_ORDER.Item_ID = ITEM.Item_ID " +
+                             "WHERE PURCHASE_ORDER.Purchase_Invoice_ID = '" + int.Parse(ID) + "'";
+
+                        decimal price = 0;
+                        int hvl;
+                        total = 0;               
+
+                        comm = new SqlCommand(sqlHou, conn);
+                        read = comm.ExecuteReader();
+                        while (read.Read())
+                        {                       
+                            hvl = read.GetInt32(1);
+                            price = read.GetDecimal(2);
+                            total += price * quantity;                      
+                        }
+                        read.Close();
+                        
+                        string prysUp = @"UPDATE PURCHASE_INVOICE SET Total_Cost = @cost WHERE Purchase_Invoice_ID = '" + int.Parse(ID) + "'";
+
+                        comm = new SqlCommand(prysUp, conn);
+
+                        comm.Parameters.AddWithValue("@cost", total);
 
                         comm.ExecuteNonQuery();
 
@@ -536,6 +571,12 @@ namespace Projek223
 
                         comboBox5.Text = "";
                         textBox5.Text = "";
+                        comboBox6.Text = "";
+                        RefreshPurchase();
+                        dataGridView1.DataSource = null;
+                        textBox12.Text = "";
+                        comboBox4.SelectedIndex = -1;
+                        textBox13.Text = "";
 
                     }
                     catch (Exception ex)
@@ -653,6 +694,12 @@ namespace Projek223
                                 RefreshSupplier();
 
                                 conn.Close();
+
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                                maskedTextBox3.Text = "";
+                                maskedTextBox4.Text = "";
+
                             }
                             catch (Exception ex)
                             {
@@ -833,11 +880,16 @@ namespace Projek223
         private void label30_Click(object sender, EventArgs e)
         {
             AddNewPurchaseSupplier();
+            label30.Enabled = false;
+            panel4.Enabled = false;
+            MessageBox.Show("Invoice number: "+Purchase_ID.ToString());
         }
 
         private void panel4_Click(object sender, EventArgs e)
         {
             AddNewPurchaseSupplier();
+            label30.Enabled = false;
+            panel4.Enabled = false;
         }
 
         private void lblBTNAddGC_Click(object sender, EventArgs e)
@@ -858,12 +910,14 @@ namespace Projek223
             comboBox2.Enabled = false;
             comboBox3.Enabled = false;
             textBox6.Enabled = false;
+            label30.Enabled = true;
+            panel4.Enabled = true;
 
             MessageBox.Show("Purchase invoice successfully inserted");
 
             string supplier_id = @"SELECT * FROM SUPPLIER WHERE Supplier_Name =  '" + comboBox1.Text + "'";
             int supplier = 0;
-
+            conn.Close();
             conn.Open();
 
             comm = new SqlCommand(supplier_id, conn);
@@ -876,7 +930,7 @@ namespace Projek223
             read.Close();
 
 
-            string sql = @"UPDATE PURCHASE_INVOICE SET Total_Cost = @cost WHERE Purchase_Order_ID = '" + Purchase_ID + "'";
+            string sql = @"UPDATE PURCHASE_INVOICE SET Total_Cost = @cost WHERE Purchase_Invoice_ID = '" + Purchase_ID + "'";
 
             comm = new SqlCommand(sql, conn);
 
@@ -913,7 +967,7 @@ namespace Projek223
             read.Close();
 
 
-            string sql = @"UPDATE PURCHASE_INVOICE SET Purchase_Order_ID = @PurchaseID, Purchase_Order_Date = @date, Supplier_ID = @supplier, Total_Cost = @cost WHERE Purchase_Oder_ID = '" + Purchase_ID + "'";
+            string sql = @"UPDATE PURCHASE_INVOICE SET Purchase_Invoice_ID = @Purchase_ID, Purchase_Order_Date = @date, Supplier_ID = @supplier, Total_Cost = @cost WHERE Purchase_Invoice_ID = '" + Purchase_ID + "'";
 
             comm = new SqlCommand(sql, conn);
 
@@ -996,8 +1050,12 @@ namespace Projek223
             comboBox5.Text = "";
             comboBox6.Text = "";
             textBox5.Text = "";
-            if (dg4.RowIndex >= 0)
+
+            string waarde = dataGridView4.CurrentRow.Cells[0].Value.ToString();
+
+            if (dg4.RowIndex >= 0 && waarde != "")
             {
+
                 textBox12.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString();
                 dateTimePicker3.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
                 textBox13.Text = dataGridView4.CurrentRow.Cells[3].Value.ToString();
@@ -1007,19 +1065,18 @@ namespace Projek223
 
                 ID = row.Cells[0].Value.ToString();
 
-
-                string sql = @"SELECT PURCHASE_ORDER.Purchase_Order_ID, PURCHASE_ORDER.Item_ID, PURCHASE_ORDER.Quantity_Bought, ITEM.Item, ITEM.Item_Description " +
+                string sqlWYS = @"SELECT PURCHASE_ORDER.Purchase_Order_ID, PURCHASE_ORDER.Quantity_Bought, ITEM.Item, ITEM.Item_Description " +
                              "FROM PURCHASE_ORDER " +
                              "LEFT JOIN ITEM " +
                              "ON PURCHASE_ORDER.Item_ID = ITEM.Item_ID " +
-                             "WHERE PURCHASE_ORDER.Purchase_Order_ID = '" + Convert.ToInt32(ID) + "'";
+                             "WHERE PURCHASE_ORDER.Purchase_Invoice_ID = '" + Convert.ToInt32(ID) + "'";
 
                 try
                 {
                     conn = new SqlConnection(connstring);
                     conn.Open();
  
-                    comm = new SqlCommand(sql, conn);
+                    comm = new SqlCommand(sqlWYS, conn);
 
                     adapt = new SqlDataAdapter();
                     ds = new DataSet();
@@ -1048,6 +1105,7 @@ namespace Projek223
                             comboBox6.Items.Add(read.GetValue(0));
                         }
                     }
+                    read.Close();
 
                     conn.Close();
 
@@ -1065,6 +1123,7 @@ namespace Projek223
                             comboBox5.Items.Add(read.GetValue(0));
                         }
                     }
+                    read.Close();
 
                     conn.Close();
 
@@ -1078,9 +1137,10 @@ namespace Projek223
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            comboBox6.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            comboBox5.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            textBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            comboBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            comboBox5.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox5.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            orderID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1118,6 +1178,7 @@ namespace Projek223
                         comboBox6.Items.Add(read.GetValue(0));
                     }
                 }
+                read.Close();
 
                 conn.Close();
 
@@ -1148,6 +1209,7 @@ namespace Projek223
                         comboBox3.Items.Add(read.GetValue(0));
                     }
                 }
+                read.Close();
 
                 conn.Close();
 
@@ -1167,7 +1229,7 @@ namespace Projek223
         {
             try
             {
-                string sql = "SELECT * from SUPPLIERS WHERE Supplier_Name LIKE'%" + txtSearchSupp.Text + "%'";
+                string sql = "SELECT * from SUPPLIER WHERE Supplier_Name LIKE'%" + txtSearchSupp.Text + "%'";
                 conn = new SqlConnection(connstring);
                 conn.Close();
                 conn.Open();
@@ -1194,7 +1256,7 @@ namespace Projek223
         {
             try
             {
-                string sql = "SELECT * from ITEM WHERE Item LIKE'%" + txtSearchItem.Text + "%' OR Item_Description = LIKE'%" + txtSearchItem.Text + "%'";
+                string sql = @"SELECT * FROM ITEM WHERE Item LIKE '%" + txtSearchItem.Text + "%' OR Item_Description LIKE'%" + txtSearchItem.Text + "%'";
                 conn = new SqlConnection(connstring);
                 conn.Close();
                 conn.Open();

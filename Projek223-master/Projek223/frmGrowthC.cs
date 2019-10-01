@@ -382,7 +382,8 @@ namespace Projek223
 
         private void dgGROWT_CellClick(object sender, DataGridViewCellEventArgs e)                                                   // CHOOSE DATAGRID ROW GROWTH CYCLES
         {
-            if (e.RowIndex >= 0)
+            string waarde = dgGROWT.CurrentRow.Cells[0].Value.ToString();
+            if (e.RowIndex >= 0 && waarde != "")
             {
                 //gets a collection that contains all the rows
                 DataGridViewRow row = dgGROWT.Rows[e.RowIndex];

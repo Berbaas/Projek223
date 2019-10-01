@@ -156,7 +156,7 @@
             this.Info.Controls.Add(this.panel1);
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
-            this.Info.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Info.Padding = new System.Windows.Forms.Padding(3);
             this.Info.Size = new System.Drawing.Size(1286, 701);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
@@ -245,7 +245,7 @@
             this.MaintainGC.Controls.Add(this.tableLayoutPanel6);
             this.MaintainGC.Location = new System.Drawing.Point(4, 30);
             this.MaintainGC.Name = "MaintainGC";
-            this.MaintainGC.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.MaintainGC.Padding = new System.Windows.Forms.Padding(3);
             this.MaintainGC.Size = new System.Drawing.Size(1286, 701);
             this.MaintainGC.TabIndex = 1;
             this.MaintainGC.Text = "Growth cycles";
@@ -368,7 +368,7 @@
             // 
             this.cmbVarADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarADD.FormattingEnabled = true;
-            this.cmbVarADD.Location = new System.Drawing.Point(204, 13);
+            this.cmbVarADD.Location = new System.Drawing.Point(204, 17);
             this.cmbVarADD.Name = "cmbVarADD";
             this.cmbVarADD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarADD.TabIndex = 4;
@@ -502,7 +502,7 @@
             // 
             this.cmbVarCD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbVarCD.FormattingEnabled = true;
-            this.cmbVarCD.Location = new System.Drawing.Point(276, 13);
+            this.cmbVarCD.Location = new System.Drawing.Point(276, 17);
             this.cmbVarCD.Name = "cmbVarCD";
             this.cmbVarCD.Size = new System.Drawing.Size(218, 29);
             this.cmbVarCD.TabIndex = 4;
@@ -534,7 +534,7 @@
             this.MaintainVariant.Controls.Add(this.tableLayoutPanel7);
             this.MaintainVariant.Location = new System.Drawing.Point(4, 30);
             this.MaintainVariant.Name = "MaintainVariant";
-            this.MaintainVariant.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.MaintainVariant.Padding = new System.Windows.Forms.Padding(3);
             this.MaintainVariant.Size = new System.Drawing.Size(1286, 701);
             this.MaintainVariant.TabIndex = 2;
             this.MaintainVariant.Text = "Variants";

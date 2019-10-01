@@ -201,7 +201,7 @@
             this.Info.Controls.Add(this.lblInfo);
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
-            this.Info.Padding = new System.Windows.Forms.Padding(3);
+            this.Info.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Info.Size = new System.Drawing.Size(1216, 743);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
@@ -233,7 +233,7 @@
             this.MaintainPurch.Controls.Add(this.tableLayoutPanel10);
             this.MaintainPurch.Location = new System.Drawing.Point(4, 30);
             this.MaintainPurch.Name = "MaintainPurch";
-            this.MaintainPurch.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintainPurch.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaintainPurch.Size = new System.Drawing.Size(1216, 743);
             this.MaintainPurch.TabIndex = 1;
             this.MaintainPurch.Text = "New Purchase";
@@ -315,7 +315,7 @@
             this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(3, 3);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(481, 172);
+            this.listBox1.Size = new System.Drawing.Size(481, 151);
             this.listBox1.TabIndex = 9;
             this.toolTip1.SetToolTip(this.listBox1, "This displays the items to be added to a purchase order.");
             // 
@@ -366,7 +366,7 @@
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(257, 16);
+            this.comboBox2.Location = new System.Drawing.Point(257, 12);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(218, 29);
             this.comboBox2.TabIndex = 5;
@@ -377,7 +377,7 @@
             // 
             this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(257, 70);
+            this.comboBox3.Location = new System.Drawing.Point(257, 66);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(218, 29);
             this.comboBox3.TabIndex = 6;
@@ -432,7 +432,7 @@
             // 
             this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox6.Location = new System.Drawing.Point(256, 120);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(220, 29);
             this.textBox6.TabIndex = 9;
@@ -472,7 +472,7 @@
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(257, 25);
+            this.comboBox1.Location = new System.Drawing.Point(257, 21);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(218, 29);
             this.comboBox1.TabIndex = 4;
@@ -513,7 +513,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.Control;
-            this.label30.Location = new System.Drawing.Point(-3, 10);
+            this.label30.Location = new System.Drawing.Point(3, 9);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(200, 37);
             this.label30.TabIndex = 0;
@@ -526,7 +526,7 @@
             this.CDPurchase.Controls.Add(this.tableLayoutPanel11);
             this.CDPurchase.Location = new System.Drawing.Point(4, 30);
             this.CDPurchase.Name = "CDPurchase";
-            this.CDPurchase.Padding = new System.Windows.Forms.Padding(3);
+            this.CDPurchase.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.CDPurchase.Size = new System.Drawing.Size(1216, 743);
             this.CDPurchase.TabIndex = 4;
             this.CDPurchase.Text = "Change purchase";
@@ -591,8 +591,8 @@
             // 
             this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(255, 73);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox6.Location = new System.Drawing.Point(255, 69);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(213, 29);
             this.comboBox6.TabIndex = 19;
@@ -656,8 +656,8 @@
             // 
             this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(255, 18);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Location = new System.Drawing.Point(255, 14);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(213, 29);
             this.comboBox5.TabIndex = 18;
@@ -690,7 +690,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 372);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(532, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(532, 294);
             this.dataGridView1.TabIndex = 12;
             this.toolTip1.SetToolTip(this.dataGridView1, "This displays all items from the selected purchase invoice above.");
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -828,8 +828,8 @@
             // 
             this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(255, 72);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Location = new System.Drawing.Point(255, 68);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(213, 29);
             this.comboBox4.TabIndex = 17;
@@ -840,7 +840,7 @@
             this.MaintainSupp.Controls.Add(this.tableLayoutPanel12);
             this.MaintainSupp.Location = new System.Drawing.Point(4, 30);
             this.MaintainSupp.Name = "MaintainSupp";
-            this.MaintainSupp.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintainSupp.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaintainSupp.Size = new System.Drawing.Size(1216, 743);
             this.MaintainSupp.TabIndex = 2;
             this.MaintainSupp.Text = "Suppliers";
@@ -907,7 +907,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(551, 316);
+            this.dataGridView2.Size = new System.Drawing.Size(551, 315);
             this.dataGridView2.TabIndex = 10;
             this.toolTip1.SetToolTip(this.dataGridView2, "This displays all supplier information.");
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
@@ -1171,7 +1171,7 @@
             this.MaintainItems.Controls.Add(this.tableLayoutPanel13);
             this.MaintainItems.Location = new System.Drawing.Point(4, 30);
             this.MaintainItems.Name = "MaintainItems";
-            this.MaintainItems.Padding = new System.Windows.Forms.Padding(3);
+            this.MaintainItems.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.MaintainItems.Size = new System.Drawing.Size(1216, 743);
             this.MaintainItems.TabIndex = 3;
             this.MaintainItems.Text = "Items";
@@ -1238,7 +1238,7 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(585, 319);
+            this.dataGridView3.Size = new System.Drawing.Size(585, 318);
             this.dataGridView3.TabIndex = 15;
             this.toolTip1.SetToolTip(this.dataGridView3, "This displays all item information.");
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);

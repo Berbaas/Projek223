@@ -26,7 +26,7 @@ namespace Projek223
         public SqlDataAdapter adapt;
         public string folderPath;
         private string sName, sFrom, sWhere;
-        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baas\Documents\_TWEEDEJAAR\Projek 223\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
+        public string connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chant\Desktop\CMPG223\Projek223\Current Version\Projek223-master\Projek223-master\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
 
 
         public frmReports()
