@@ -18,7 +18,7 @@ namespace Projek223
             InitializeComponent();
         }
 
-        string connstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chant\Desktop\CMPG223\Projek223\Current Version\Projek223-master\Projek223-master\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
+        string connstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baas\Documents\_TWEEDEJAAR\Projek 223\Projek223-master\Projek223\MicroGreensDatabase1.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlDataReader read;
         SqlCommand comm;
@@ -27,6 +27,7 @@ namespace Projek223
         string ID = "";
         decimal total = 0;
         int Sales_ID = 0;
+        string orderID = "";
 
         //Reload datagridviews after changes
         public void RefreshSale()
@@ -307,7 +308,7 @@ namespace Projek223
 
                     conn.Close();
 
-                    MessageBox.Show("Purchase invoice successfully created.");
+                    MessageBox.Show("Sales invoice successfully created.");
 
                     comboBox2.Enabled = true;
                     comboBox6.Enabled = true;
@@ -331,50 +332,55 @@ namespace Projek223
             errorProvider1.SetError(comboBox2, "");
             errorProvider1.SetError(comboBox3, "");
             errorProvider1.SetError(textBox6, "");
-
+            
             if (comboBox2.SelectedItem != null)
             {
-                if (comboBox3.SelectedItem != null)
+                if (comboBox6.SelectedItem != null)
                 {
-                    if (int.TryParse(textBox6.Text, out int quantity))
+                    if (int.TryParse(textBox20.Text, out int quantity))
                     {
                         try
                         {
-                            string item_id = @"SELECT * FROM ITEM WHERE Item = '" + comboBox2.Text + "' AND Item_Description = '" + comboBox3.Text + "'";
-                            int item = 0;
-                            decimal price = 0;
+                            string pruduct_id = @"SELECT PRODUCT.Product_Price, PRODUCT.Variant " +
+                             "FROM PRODUCT " +
+                             "LEFT JOIN SEED_VARIANT " +
+                             "ON PRODUCT.Variant = SEED_VARIANT.Variant " +
+                             "WHERE SEED_VARIANT.Description = '" + comboBox2.Text + "' AND PRODUCT.Product_Description = '" + comboBox6.Text + "'";
 
+                            int variant = 0;
+                            decimal price = 0;
 
                             conn.Open();
 
-                            comm = new SqlCommand(item_id, conn);
+                            comm = new SqlCommand(pruduct_id, conn);
                             read = comm.ExecuteReader();
                             while (read.Read())
                             {
-                                item = read.GetInt32(0);
-                                price = read.GetDecimal(3);
+                                variant = read.GetInt32(1);
+                                price = read.GetDecimal(0);
                             }
                             read.Close();
 
                             total += price * quantity;
 
-                            string addOrder = @"INSERT INTO PURCHASE_ORDER VALUES(@id, @item,@quantity)";
+                            string addOrder = @"INSERT INTO SALES VALUES(@id, @item,@quantity)";
 
                             comm = new SqlCommand(addOrder, conn);
 
-                            comm.Parameters.AddWithValue("@ID", item_id);
-                            comm.Parameters.AddWithValue("@item", item);
+                            comm.Parameters.AddWithValue("@ID", Sales_ID);
+                            comm.Parameters.AddWithValue("@item", variant);
                             comm.Parameters.AddWithValue("@quantity", quantity);
 
                             comm.ExecuteNonQuery();
 
                             conn.Close();
 
-
+                            //MessageBox.Show("WAT DE FOK");
                             comboBox2.SelectedIndex = -1;
-                            comboBox3.Items.Clear();
-                            comboBox3.Text = "";
-                            textBox6.Text = "";
+                            comboBox2.Text = "";
+                            comboBox6.Items.Clear();
+                            comboBox6.Text = "";
+                            textBox20.Text = "";
 
                         }
                         catch (SqlException ex)
@@ -687,7 +693,7 @@ namespace Projek223
         //Add Product
         public void AddProduct()
         {
-            /*errorProvider1.SetError(textBox10, "");
+            errorProvider1.SetError(textBox10, "");
             errorProvider1.SetError(textBox17, "");
             errorProvider1.SetError(textBox18, "");
 
@@ -740,7 +746,7 @@ namespace Projek223
             {
                 errorProvider1.SetError(textBox10, "Select a variant.");
                 textBox10.Focus();
-            }*/
+            }
         }
 
         //Change Poduct
@@ -831,11 +837,17 @@ namespace Projek223
         private void label24_Click(object sender, EventArgs e)
         {
             AddNewSaleCustomer();
+            label24.Enabled = false;
+            panel13.Enabled = false;
+            MessageBox.Show("Invoice number: " + Sales_ID.ToString());
         }
 
         private void panel13_Click(object sender, EventArgs e)
         {
             AddNewSaleCustomer();
+            label24.Enabled = false;
+            panel13.Enabled = false;
+            MessageBox.Show("Invoice number: " + Sales_ID.ToString());
         }
 
         private void panel2_Click(object sender, EventArgs e)
@@ -889,15 +901,18 @@ namespace Projek223
         private void label19_Click_1(object sender, EventArgs e)
         {
             comboBox1.SelectedItem = "";
+            listBox1.Items.Clear();
             comboBox2.Enabled = false;
             textBox20.Enabled = false;
             comboBox6.Enabled = false;
+            label24.Enabled = true;
+            panel13.Enabled = true;
 
             MessageBox.Show("Sales invoice successfully inserted");
 
             string customer_id = @"SELECT * FROM CUSTOMER WHERE Customer_Name =  '" + comboBox1.Text + "'";
             int customer = 0;
-
+            conn.Close();
             conn.Open();
 
             comm = new SqlCommand(customer_id, conn);
@@ -909,7 +924,7 @@ namespace Projek223
             }
             read.Close();
 
-            string sql = @"UPDATE SALES_INVOICE SET Total_Payment_Amount = @cost WHERE Sales_Order_ID = '" + Sales_ID + "'";
+            string sql = @"UPDATE SALES_INVOICE SET Total_Payment_Amount = @cost WHERE Sales_Invoice_ID = '" + Sales_ID + "'";
 
             comm = new SqlCommand(sql, conn);
 
@@ -1020,24 +1035,31 @@ namespace Projek223
         }
 
         //Fill textboxes with datagridview records
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs dg2)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs dg1)
         {
-            if (dg2.RowIndex >= 0)
-            {
-                textBox6.Text = dataGridView4.CurrentRow.Cells[0].Value.ToString();
-                dateTimePicker2.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
-                textBox5.Text = dataGridView4.CurrentRow.Cells[3].Value.ToString();
+            textBox6.Text = "";
+            comboBox4.Text = "";
+            dateTimePicker2.Text = "";
+            textBox5.Text = "";
 
-                DataGridViewRow row = dataGridView2.Rows[dg2.RowIndex];
+            string value = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+            if (dg1.RowIndex >= 0 && value != "")
+            {
+                textBox6.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                comboBox4.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                dateTimePicker2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+                DataGridViewRow row = dataGridView1.Rows[dg1.RowIndex];
 
                 ID = row.Cells[0].Value.ToString();
-
 
                 string sql = @"SELECT SALES.Sales_Order_ID, SALES.Product_ID, SALES.Quantity_Sold, PRODUCT.Variant, PRODUCT.Product_Description " +
                              "FROM SALES " +
                              "LEFT JOIN ITEM " +
                              "ON SALES.Product_ID = PRODUCT.Product_ID " +
-                             "WHERE SALES.Sales_Order_ID = '" + Convert.ToInt32(ID) + "'";
+                             "WHERE SALES.Sales_Invoice_ID = '" + Convert.ToInt32(ID) + "'";
 
                 try
                 {
@@ -1057,6 +1079,43 @@ namespace Projek223
 
                     conn.Close();
 
+                    string sql2 = @"SELECT Product_Description FROM PRODUCT WHERE Variant = '" + comboBox5.Text + "'";
+                    string sql3 = @"SELECT Variant FROM PRODUCT";
+                    conn = new SqlConnection(connstring);
+                    conn.Open();
+
+                    comm = new SqlCommand(sql2, conn);
+
+                    read = comm.ExecuteReader();
+
+                    while (read.Read())
+                    {
+                        if (!comboBox3.Items.Contains(read.GetValue(0)))
+                        {
+                            comboBox3.Items.Add(read.GetValue(0));
+                        }
+                    }
+                    read.Close();
+
+                    conn.Close();
+
+                    conn = new SqlConnection(connstring);
+                    conn.Open();
+
+                    comm = new SqlCommand(sql3, conn);
+
+                    read = comm.ExecuteReader();
+
+                    while (read.Read())
+                    {
+                        if (!comboBox5.Items.Contains(read.GetValue(0)))
+                        {
+                            comboBox5.Items.Add(read.GetValue(0));
+                        }
+                    }
+                    read.Close();
+
+                    conn.Close();
                 }
                 catch (SqlException er)
                 {
@@ -1069,6 +1128,8 @@ namespace Projek223
         {
             comboBox5.Text = dataGridView3.CurrentRow.Cells[3].Value.ToString();
             comboBox3.Text = dataGridView3.CurrentRow.Cells[2].Value.ToString();
+            textBox7.Text = dataGridView3.CurrentRow.Cells[1].Value.ToString();
+            orderID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void dataGridView2_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -1086,7 +1147,72 @@ namespace Projek223
             textBox19.Text = dataGridView4.CurrentRow.Cells[2].Value.ToString();
             textBox12.Text = dataGridView4.CurrentRow.Cells[1].Value.ToString();
             textBox11.Text = dataGridView4.CurrentRow.Cells[3].Value.ToString();
+        }
 
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = @"SELECT Product_Description FROM PRODUCT WHERE Variant = '" + comboBox5.Text + "'";
+                conn = new SqlConnection(connstring);
+                conn.Open();
+
+                comm = new SqlCommand(sql, conn);
+
+                read = comm.ExecuteReader();
+
+                while (read.Read())
+                {
+                    if (!comboBox3.Items.Contains(read.GetValue(0)))
+                    {
+                        comboBox3.Items.Add(read.GetValue(0));
+                    }
+                }
+                read.Close();
+
+                conn.Close();
+
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox6.Items.Clear();
+            try
+            {
+                conn = new SqlConnection(connstring);
+                conn.Open();
+   
+                string sqlCustomer = @"SELECT PRODUCT.Product_Description " +
+                "FROM PRODUCT " +
+                "LEFT JOIN SEED_VARIANT " +
+                "ON PRODUCT.Variant = SEED_VARIANT.Variant "+
+                "WHERE SEED_VARIANT.Description = '" + comboBox2.Text + "'";
+
+                comm = new SqlCommand(sqlCustomer, conn);
+
+                read = comm.ExecuteReader();
+
+                while (read.Read())
+                {
+                    if (!comboBox6.Items.Contains(read.GetValue(0)))
+                    {
+                        comboBox6.Items.Add(read.GetValue(0));
+                    }
+                }
+                read.Close();
+
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not fill description");
+            }
         }
 
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)

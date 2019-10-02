@@ -1019,9 +1019,9 @@ namespace Projek223
             ChangeSupplier();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void panel3_Click(object sender, EventArgs e)
         {
-            
+            ChangeSupplier();
         }
 
         private void label27_Click(object sender, EventArgs e)
@@ -1218,11 +1218,6 @@ namespace Projek223
             {
                 MessageBox.Show("Could not fill description");
             }
-        }
-
-        private void panel3_Click(object sender, EventArgs e)
-        {
-            ChangeSupplier();
         }
 
         private void txtSearchSupp_TextChanged(object sender, EventArgs e)

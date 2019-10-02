@@ -73,6 +73,16 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.MaintainCustomers = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -133,16 +143,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.MaintainSales.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -159,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.MaintainCustomers.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -176,8 +179,6 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MaintainSales
@@ -186,7 +187,7 @@
             this.MaintainSales.Controls.Add(this.tableLayoutPanel10);
             this.MaintainSales.Location = new System.Drawing.Point(4, 30);
             this.MaintainSales.Name = "MaintainSales";
-            this.MaintainSales.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.MaintainSales.Padding = new System.Windows.Forms.Padding(3);
             this.MaintainSales.Size = new System.Drawing.Size(1330, 740);
             this.MaintainSales.TabIndex = 1;
             this.MaintainSales.Text = "New Sale";
@@ -325,10 +326,11 @@
             // 
             this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(316, 13);
+            this.comboBox2.Location = new System.Drawing.Point(316, 17);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(218, 29);
             this.comboBox2.TabIndex = 5;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -375,7 +377,7 @@
             // 
             this.comboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(316, 68);
+            this.comboBox6.Location = new System.Drawing.Point(316, 72);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(218, 29);
             this.comboBox6.TabIndex = 14;
@@ -413,7 +415,7 @@
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(316, 12);
+            this.comboBox1.Location = new System.Drawing.Point(316, 16);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(218, 29);
             this.comboBox1.TabIndex = 4;
@@ -466,7 +468,7 @@
             this.Info.Controls.Add(this.lblInfo);
             this.Info.Location = new System.Drawing.Point(4, 30);
             this.Info.Name = "Info";
-            this.Info.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Info.Padding = new System.Windows.Forms.Padding(3);
             this.Info.Size = new System.Drawing.Size(1330, 740);
             this.Info.TabIndex = 0;
             this.Info.Text = "Info";
@@ -513,7 +515,7 @@
             this.tabPage1.Controls.Add(this.tableLayoutPanel11);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1330, 740);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Change sale";
@@ -548,6 +550,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(598, 297);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dataGridView3
             // 
@@ -691,12 +694,125 @@
             this.label31.Text = "Change invoice";
             this.label31.Click += new System.EventHandler(this.label31_Click);
             // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(272, 73);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(213, 29);
+            this.comboBox4.TabIndex = 18;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel7.Controls.Add(this.comboBox3, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.label22, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.textBox7, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.panel1, 1, 3);
+            this.tableLayoutPanel7.Controls.Add(this.label23, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.comboBox5, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label30, 0, 1);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(607, 379);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 4;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.4186F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.06976F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(527, 239);
+            this.tableLayoutPanel7.TabIndex = 14;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(271, 75);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(213, 29);
+            this.comboBox3.TabIndex = 19;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 113);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(98, 30);
+            this.label22.TabIndex = 15;
+            this.label22.Text = "Quantity:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox7.Location = new System.Drawing.Point(270, 126);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(216, 29);
+            this.textBox7.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.label37);
+            this.panel1.Location = new System.Drawing.Point(279, 176);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(197, 55);
+            this.panel1.TabIndex = 6;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.SystemColors.Control;
+            this.label37.Location = new System.Drawing.Point(29, 13);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(137, 30);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "Change item";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(3, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(90, 30);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Product:";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(271, 18);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(213, 29);
+            this.comboBox5.TabIndex = 18;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(3, 58);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(123, 30);
+            this.label30.TabIndex = 19;
+            this.label30.Text = "Description:";
+            // 
             // MaintainCustomers
             // 
             this.MaintainCustomers.Controls.Add(this.tableLayoutPanel12);
             this.MaintainCustomers.Location = new System.Drawing.Point(4, 30);
             this.MaintainCustomers.Name = "MaintainCustomers";
-            this.MaintainCustomers.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.MaintainCustomers.Padding = new System.Windows.Forms.Padding(3);
             this.MaintainCustomers.Size = new System.Drawing.Size(1330, 740);
             this.MaintainCustomers.TabIndex = 2;
             this.MaintainCustomers.Text = "Customers";
@@ -1055,7 +1171,7 @@
             this.Products.Controls.Add(this.tableLayoutPanel13);
             this.Products.Location = new System.Drawing.Point(4, 30);
             this.Products.Name = "Products";
-            this.Products.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Products.Padding = new System.Windows.Forms.Padding(3);
             this.Products.Size = new System.Drawing.Size(1330, 740);
             this.Products.TabIndex = 4;
             this.Products.Text = "Products";
@@ -1281,6 +1397,7 @@
             this.tableLayoutPanel9.Controls.Add(this.panel12, 1, 3);
             this.tableLayoutPanel9.Controls.Add(this.textBox17, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.textBox18, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this.textBox10, 1, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 394);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 4;
@@ -1364,117 +1481,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // comboBox4
+            // textBox10
             // 
-            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(272, 69);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(213, 29);
-            this.comboBox4.TabIndex = 18;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel7.Controls.Add(this.comboBox3, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.label22, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.textBox7, 1, 2);
-            this.tableLayoutPanel7.Controls.Add(this.panel1, 1, 3);
-            this.tableLayoutPanel7.Controls.Add(this.label23, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.comboBox5, 1, 0);
-            this.tableLayoutPanel7.Controls.Add(this.label30, 0, 1);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(607, 379);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 4;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.4186F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.25581F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.06976F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(527, 239);
-            this.tableLayoutPanel7.TabIndex = 14;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(271, 71);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(213, 29);
-            this.comboBox3.TabIndex = 19;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 113);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 30);
-            this.label22.TabIndex = 15;
-            this.label22.Text = "Quantity:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Location = new System.Drawing.Point(270, 126);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(216, 29);
-            this.textBox7.TabIndex = 9;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(156)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.label37);
-            this.panel1.Location = new System.Drawing.Point(279, 176);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 55);
-            this.panel1.TabIndex = 6;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.SystemColors.Control;
-            this.label37.Location = new System.Drawing.Point(29, 13);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(137, 30);
-            this.label37.TabIndex = 0;
-            this.label37.Text = "Change item";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 30);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Product:";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(271, 14);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(213, 29);
-            this.comboBox5.TabIndex = 18;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(3, 58);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(123, 30);
-            this.label30.TabIndex = 19;
-            this.label30.Text = "Description:";
+            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox10.Location = new System.Drawing.Point(152, 22);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(239, 29);
+            this.textBox10.TabIndex = 27;
             // 
             // frmSales
             // 
@@ -1512,6 +1525,10 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.MaintainCustomers.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
@@ -1541,10 +1558,6 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1665,5 +1678,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }
