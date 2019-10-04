@@ -1,0 +1,145 @@
+string constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Baas\Documents\C# tweedej\EksamenOef\EksamenOef\AssetInfo.mdf;Integrated Security=True";
+        SqlConnection con;
+        SqlDataAdapter adapt;
+        SqlDataReader lees;
+        DataSet ds;
+        SqlCommand command;
+
+        private void loadAll()
+        {
+            string sql = @"SELECT * FROM Asset";
+            try
+            {
+                listBox1.Items.Clear();
+                comboBox1.Items.Clear();
+                con = new SqlConnection(constr);
+                command = new SqlCommand(sql,con);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
+                con.Open();
+
+                adapt.SelectCommand = command;
+                adapt.Fill(ds, "Info");
+
+                dataGridView1.DataMember = "Info";
+                dataGridView1.DataSource = ds;
+      
+                lees = command.ExecuteReader();
+                while (lees.Read())
+                {
+                    if (!listBox1.Items.Contains(lees.GetValue(4)))
+                        listBox1.Items.Add(lees.GetValue(4));
+
+                    comboBox1.Items.Add(lees.GetValue(0));
+                }
+                con.Close();
+
+            }
+            catch(SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void ViewAssets_Load(object sender, EventArgs e)
+        {
+            loadAll();
+        }
+
+        private void soek(string sql)
+        {
+            try
+            {
+                command = new SqlCommand(sql, con);
+                adapt = new SqlDataAdapter();
+                ds = new DataSet();
+
+                adapt.SelectCommand = command;
+                adapt.Fill(ds, "Info");
+
+                dataGridView1.DataMember = "Info";
+                dataGridView1.DataSource = ds;
+
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string groter = @"SELECT * FROM Asset WHERE Value > 10000";
+            soek(groter);
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string listb = @"SELECT * FROM Asset WHERE Category = '"+listBox1.SelectedItem.ToString()+"'";
+            soek(listb);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(txtValue, "");
+            errorProvider1.SetError(txtYear, "");
+
+            if(int.TryParse(txtYear.Text, out int year))
+            {
+                if (int.TryParse(txtValue.Text, out int value))
+                {
+                    string sql2 = $"INSERT INTO Asset Values('{txtNr.Text}', '{txtDescr.Text}',{ year},{ value},'{txtCategory.Text}')";
+                    con.Open();
+                    command = new SqlCommand(sql2, con);
+                    adapt = new SqlDataAdapter();
+                    adapt.InsertCommand = command;
+                    adapt.InsertCommand.ExecuteNonQuery();
+
+                    con.Close();
+
+                    loadAll();
+                    MessageBox.Show("Successfully inserted!");
+                    txtCategory.Text = "";
+                    txtDescr.Text = "";
+                    txtNr.Text = "";
+                    txtValue.Text = "";
+                    txtYear.Text = "";
+
+                }
+                else
+                {
+                    errorProvider1.SetError(txtValue, "Enter valid integer for value!");
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(txtYear, "Enter valid integer for year!");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string delete = @"DELETE FROM Asset WHERE AssetNr = '"+comboBox1.SelectedItem+"'";
+            try
+            {
+                command = new SqlCommand(delete,con);
+                con.Open();
+                adapt = new SqlDataAdapter();
+                adapt.DeleteCommand = command;
+                adapt.DeleteCommand.ExecuteNonQuery();
+                MessageBox.Show("Successfully deleted!");
+                con.Close();
+                comboBox1.SelectedIndex = -1;
+            }catch(SqlException er)
+            {
+                MessageBox.Show(er.Message);
+            }
+            
+
+            loadAll();
+        }
+
+        //Update: sql = "UPDATE Asset SET Value = 10000 where AssetNr ='1'";
+        //adapt.UpdateCommand = command;
+        //adapt.UpdateCommand.ExecuteNonQuery();
+    }
